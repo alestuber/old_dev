@@ -23,6 +23,7 @@ group :development, :test do
   gem 'spring', '1.3.6'
   gem 'guard', '2.12.5'
   gem 'dotenv-rails', '2.0.1'
+  gem 'bullet', '4.14.7'
 end
 
 group :development do

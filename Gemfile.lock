@@ -49,6 +49,9 @@ GEM
       autoprefixer-rails (>= 5.0.0.1)
       sass (>= 3.2.19)
     builder (3.2.2)
+    bullet (4.14.7)
+      activesupport (>= 3.0.0)
+      uniform_notifier (~> 1.9.0)
     byebug (4.0.5)
       columnize (= 0.9.0)
     celluloid (0.16.0)
@@ -229,6 +232,7 @@ GEM
       json (>= 1.8.0)
     warden (1.2.3)
       rack (>= 1.0)
+    uniform_notifier (1.9.0)
     web-console (2.1.2)
       activemodel (>= 4.0)
       binding_of_caller (>= 0.7.2)
@@ -240,6 +244,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootstrap-sass (= 3.3.4.1)
+  bullet (= 4.14.7)
   byebug (= 4.0.5)
   coffee-rails (= 4.1.0)
   devise (= 3.4.1)
