@@ -18,8 +18,9 @@ group :development, :test do
   gem 'byebug', '4.0.5'
   gem 'sqlite3', '1.3.10'
   gem 'web-console', '2.1.2'
-  gem 'spring', '1.3.5'
+  gem 'spring', '1.3.6'
   gem 'guard', '2.12.5'
+  gem 'bullet', '4.14.7'
 end
 
 group :test do
