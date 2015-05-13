@@ -14,13 +14,15 @@ gem 'jbuilder', '2.2.13'
 gem 'sdoc', '0.4.1', group: :doc
 gem 'slim-rails', '3.0.1'
 
+gem 'sprockets', '3.1.0'
+gem 'sprockets-rails', '2.3.1'
+
 group :development, :test do
   gem 'byebug', '4.0.5'
   gem 'sqlite3', '1.3.10'
   gem 'web-console', '2.1.2'
   gem 'spring', '1.3.6'
   gem 'guard', '2.12.5'
-  gem 'bullet', '4.14.7'
 end
 
 group :test do
