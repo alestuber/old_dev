@@ -14,6 +14,8 @@ gem 'jbuilder', '2.2.13'
 gem 'sdoc', '0.4.1', group: :doc
 gem 'slim-rails', '3.0.1'
 
+gem 'high_voltage', '2.3.0'
+
 group :development, :test do
   gem 'byebug', '4.0.5'
   gem 'sqlite3', '1.3.10'
