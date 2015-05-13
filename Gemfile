@@ -14,6 +14,8 @@ gem 'jbuilder', '2.2.13'
 gem 'sdoc', '0.4.1', group: :doc
 gem 'slim-rails', '3.0.1'
 
+gem 'paranoia', '2.1.2'
+
 gem 'sprockets', '3.1.0'
 gem 'sprockets-rails', '2.3.1'
 
