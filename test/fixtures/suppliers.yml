@@ -1,0 +1,11 @@
+mercado_fresh:
+  id: 1
+  name: :'Mercado Fresh'
+
+extra:
+  id: 2
+  name: :'Extra'
+
+pao_de_acucar:
+  id: 3
+  name: :'Pão de Açúcar'
