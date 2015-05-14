@@ -16,6 +16,7 @@ gem 'slim-rails', '3.0.1'
 gem 'devise', '3.4.1'
 gem 'mandrill-api', '1.0.53'
 gem 'high_voltage', '2.3.0'
+gem 'rails-i18n', '4.0.4'
 gem 'devise-i18n', '0.12.0'
 
 group :development, :test do
