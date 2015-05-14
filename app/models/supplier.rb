@@ -1,5 +1,6 @@
 class Supplier < ActiveRecord::Base
-#  act_as_paranoid
+  acts_as_paranoid
 
-  has_many :products
+  has_many :variants
+  validates :name, presence: true
 end

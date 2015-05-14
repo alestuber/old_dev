@@ -11,16 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150513214325) do
+ActiveRecord::Schema.define(version: 20150514181308) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "suppliers", force: :cascade do |t|
-    t.datetime "deleted_at"
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "deleted_at"
   end
 
   add_index "suppliers", ["deleted_at"], name: "index_suppliers_on_deleted_at", using: :btree
@@ -50,17 +50,18 @@ ActiveRecord::Schema.define(version: 20150513214325) do
 
   create_table "variants", force: :cascade do |t|
     t.string   "sku"
+    t.float    "ean"
     t.decimal  "price"
-    t.decimal  "weigh"
-    t.decimal  "height"
-    t.decimal  "width"
-    t.decimal  "depth"
-    t.datetime "deleted_at"
     t.boolean  "is_master"
-    t.integer  "product_id"
     t.decimal  "cost_price"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "supplier_id"
+    t.datetime "deleted_at"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
+  add_index "variants", ["deleted_at"], name: "index_variants_on_deleted_at", using: :btree
+  add_index "variants", ["supplier_id"], name: "index_variants_on_supplier_id", using: :btree
+
+  add_foreign_key "variants", "suppliers"
 end

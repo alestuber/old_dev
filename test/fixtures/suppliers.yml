@@ -1,12 +1,12 @@
-mercado_fresh:
+supplier_mercado_fresh:
   id: 1
   name: :'Mercado Fresh'
 
-extra:
+supplier_extra:
   id: 2
   name: :'Extra'
 
-pao_de_acucar:
+supplier_pao_de_acucar:
   id: 3
   name: :'Pão de Açúcar'
 
