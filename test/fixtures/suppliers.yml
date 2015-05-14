@@ -9,3 +9,9 @@ extra:
 pao_de_acucar:
   id: 3
   name: :'Pão de Açúcar'
+
+<% 30.times do |n| %>
+supplier_<%= n %>>:
+  id: <%= n+4 %>
+  name: Faker::Company.name
+<% end %>

@@ -28,6 +28,7 @@ group :development, :test do
   gem 'guard', '2.12.5'
   gem 'bullet', '4.14.7'
   gem 'dotenv-rails', '2.0.1'
+  gem 'faker'
 end
 
 group :development do
