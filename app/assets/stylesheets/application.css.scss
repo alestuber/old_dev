@@ -12,6 +12,7 @@
  *
  */
 
- @import "bootstrap-sprockets";
- @import "bootstrap";
- @import "custom";
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "devise_flash_fix";
+@import "forms"
