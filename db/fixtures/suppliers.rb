@@ -16,8 +16,9 @@ Supplier.seed(:id,
 
 30.times do |n|
   Supplier.seed(:id,
-  {
-    id: n+4
-    name: Faker::Company.name
-  }
+    {
+      id: n+4,
+      name: Faker::Company.name
+    }
+  )
 end
