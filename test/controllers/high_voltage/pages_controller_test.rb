@@ -1,6 +1,7 @@
 require 'test_helper'
 
 class HighVoltage::PagesControllerTest < ActionController::TestCase
+  include Devise::TestHelpers
 
   %w(home contato).each do |page|
     test "should get #{page}" do
