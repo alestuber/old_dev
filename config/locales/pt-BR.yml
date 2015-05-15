@@ -8,4 +8,10 @@ pt-BR:
         user:
           email: E-mail
           password: Senha
-          password_confirmation: Confirmação de senha
+          password_confirmation: Confirmação de Senha
+          current_password: Senha Atual
+          first_name: Nome
+          last_name: Sobrenome
+          telephone: Telefone
+          date_of_birth: Data de Nascimento
+          cpf: CPF
