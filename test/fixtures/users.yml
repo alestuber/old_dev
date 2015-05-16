@@ -6,7 +6,7 @@ alex:
   last_name: Stuber
   email: email@example.com
   telephone: 50551000
-  cpf: 35984728893
+  cpf: 35984728891
   encrypted_password: <%= Devise.bcrypt(User, 'password') %>
   confirmed_at: <%= Time.zone.now %>
   date_of_birth: <%= Time.zone.now %>
