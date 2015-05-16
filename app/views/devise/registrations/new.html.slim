@@ -20,7 +20,7 @@ h2 Sign up
         = f.text_field :date_of_birth, placeholder: "Ex: 29/12/1998", class: 'form-control'
       .field
         = f.label :cpf
-        = f.text_field :cpf, placeholder: "Ex: 999.999.999-99", class: 'form-control'
+        = f.number_field :cpf, placeholder: "Ex: 999.999.999-99", class: 'form-control'
       .field
         = f.label :password, @validatable ? I18n.t('activerecord.attributes.user.password') + " (mínimo de #{@minimum_password_length} caracteres)" : I18n.t('activerecord.attributes.user.password')
         = f.password_field :password, autocomplete: "off", class: 'form-control'
