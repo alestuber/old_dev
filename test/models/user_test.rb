@@ -22,12 +22,14 @@ class UserTest < ActiveSupport::TestCase
     mixed_case_email = "Bla@BlAkE.cOm"
     @user.email = mixed_case_email
     @user.save
-    @user.confirm!
+    @user.confirm! if @user.respond_to? :confirm! # The respond_to :confirm! is here to make the test work if :confirmable (Devise) is off, since this test shouldn't depend on confirmable.
     assert_equal mixed_case_email.downcase, @user.reload.email
   end
 
-  test "email should be present" do
+  test "email should be present and can't be blank" do
     @user.email = "    "
+    assert_not @user.valid?
+    @user.email = nil
     assert_not @user.valid?
   end
 
@@ -49,6 +51,30 @@ class UserTest < ActiveSupport::TestCase
       assert_not @user.valid?, "#{invalid_address.inspect} should be invalid"
     end
 
+  end
+
+  test "account should not be activated until the email address is confirmed" do
+    user = @user.dup
+    user.email = "teste@teste.com.br"
+    user.cpf = "83834427532"
+    user.confirmed_at = nil
+    assert_not user.active_for_authentication?
+    user.confirmed_at = Time.now
+    assert user.active_for_authentication?
+  end
+
+  test "new email should be unconfirmed when email is changed until the new address is confirmed" do
+    assert @user.active_for_authentication?
+    email = @user.email
+    new_email = @user.email =  "teste@teste.com.br"
+    @user.save
+    @user.reload
+    assert_equal email, @user.email
+    assert_equal new_email, @user.unconfirmed_email
+    @user.confirm!
+    @user.reload
+    assert_nil @user.unconfirmed_email
+    assert_equal @user.email, new_email
   end
 
   test "password should have at least 6 characters" do
@@ -85,71 +111,63 @@ class UserTest < ActiveSupport::TestCase
     assert @user.valid?
   end
 
-  # test "first name should be present" do
-  #   @user.first_name = "    "
-  #   assert_not @user.valid?
-  #   @user.first_name = nil
-  #   assert_not @user.valid?
-  # end
+  test "first name should be present" do
+    @user.first_name = "    "
+    assert_not @user.valid?
+    @user.first_name = nil
+    assert_not @user.valid?
+  end
 
-  # test "last name should be present" do
-  #   @user.last_name = "    "
-  #   assert_not @user.valid?
-  #   @user.last_name = nil
-  #   assert_not @user.valid?
-  # end
+  test "last name should be present" do
+    @user.last_name = "    "
+    assert_not @user.valid?
+    @user.last_name = nil
+    assert_not @user.valid?
+  end
 
+  test "telephone should be present" do
+    @user.telephone = "    "
+    assert_not @user.valid?
+    @user.telephone = nil
+    assert_not @user.valid?
+  end
 
+  test "telephone should have less or equal to 11 characters" do
+    assert @user.telephone.size < 11
+    @user.telephone = "9" * 12
+    assert_not @user.valid?
+    @user.telephone = "9" * 11
+    assert @user.valid?
+  end
 
+  test "birthdate should be present and be of datetime type" do
+    @user.date_of_birth = "    "
+    assert_not @user.valid?
+    @user.date_of_birth = nil
+    assert_not @user.valid?
+    @user.date_of_birth = Time.now
+    assert @user.valid?
+  end
 
+  test "cpf should be present" do
+    @user.cpf = "    "
+    assert_not @user.valid?
+    @user.cpf = nil
+    assert_not @user.valid?
+  end
 
-  # test "name should not be too long" do
-  #   @user.name = "a" * 51
-  #   assert_not @user.valid?
-  # end
+  test "cpf should be unique" do
+    @other_user.cpf = @user.cpf
+    assert_not @other_user.valid?
+  end
 
-  # test "email should not be too long" do
-  #   @user.email = "a" * 244 + "@example.com"
-  #   assert_not @user.valid?
-  # end
+  test "cpf should be exactly 11 characters" do
+    @user.cpf = "9" * 12
+    assert_not @user.valid?
+    @user.cpf = "9" * 10
+    assert_not @user.valid?
+    @user.cpf = "9" * 11
+    assert @user.valid?
+  end
 
-  # test "authenticated? should return false for a user with nil digest" do
-  #   assert_not @user.authenticated?(:remember , '')
-  # end
-
-  # test "associated microposts should be destroyed" do
-  #   @user.save
-  #   @user.microposts.create!(content: "blablabla")
-  #   assert_difference "Micropost.count", -1 do
-  #     @user.destroy
-  #   end
-  # end
-
-  # test "should follow and unfollow a user" do
-  #   alex = users(:alex)
-  #   archer = users(:archer)
-  #   assert_not alex.following?(archer)
-  #   assert_not archer.followed_by?(alex)
-  #   alex.follow(archer)
-  #   assert alex.following?(archer)
-  #   assert archer.followed_by?(alex)
-  #   alex.unfollow(archer)
-  #   assert_not alex.following?(archer)
-  #   assert_not archer.followed_by?(alex)
-  # end
-
-  # test "feed should have the right posts" do
-  #   alex = users(:alex)
-  #   archer = users(:archer)
-  #   lana = users(:lana)
-  #   lana.microposts.each do |post_following|
-  #     assert alex.feed.include?(post_following)
-  #   end
-  #   alex.microposts.each do |post_self|
-  #     assert alex.feed.include?(post_self)
-  #   end
-  #   archer.microposts.each do |post_unfollowed|
-  #     assert_not alex.feed.include?(post_unfollowed)
-  #   end
-  # end
 end
