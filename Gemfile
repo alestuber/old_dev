@@ -23,6 +23,7 @@ gem 'rails-i18n', '4.0.4'
 gem 'seed-fu', '2.3.5'
 gem 'rails-i18n', '4.0.4'
 gem 'devise-i18n', '0.12.0'
+gem 'omniauth-facebook', '2.0.1'
 
 group :development, :test do
   gem 'byebug', '4.0.5'
