@@ -5,7 +5,7 @@ h2 Sign up
       = render 'shared/error_messages', object: f.object
       .field
         = f.label :email
-        = f.email_field :email, autofocus: true, class: 'form-control'
+        = f.email_field :email, autofocus: true, placeholder: "Ex: email@exemplo.com.br", class: 'form-control'
       .field
         = f.label :first_name
         = f.text_field :first_name, class: 'form-control'
@@ -14,13 +14,13 @@ h2 Sign up
         = f.text_field :last_name, class: 'form-control'
       .field
         = f.label :telephone
-        = f.text_field :telephone, class: 'form-control'
+        = f.phone_field :telephone, placeholder: "Ex: (99) 98765 4321", class: 'form-control'
       .field
         = f.label :date_of_birth
-        = f.text_field :date_of_birth, class: 'form-control'
+        = f.text_field :date_of_birth, placeholder: "Ex: 29/12/1998", class: 'form-control'
       .field
         = f.label :cpf
-        = f.text_field :cpf, class: 'form-control'
+        = f.number_field :cpf, placeholder: "Ex: 999.999.999-99", class: 'form-control'
       .field
         = f.label :password, @validatable ? I18n.t('activerecord.attributes.user.password') + " (mínimo de #{@minimum_password_length} caracteres)" : I18n.t('activerecord.attributes.user.password')
         = f.password_field :password, autocomplete: "off", class: 'form-control'
@@ -28,5 +28,5 @@ h2 Sign up
         = f.label :password_confirmation
         = f.password_field :password_confirmation, autocomplete: "off", class: 'form-control'
       .actions
-        = f.submit "Criar conta", class: "btn btn-primary"
+        = f.submit "Criar Conta", class: "btn btn-primary"
     = render "devise/shared/links"
