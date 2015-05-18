@@ -49,3 +49,31 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   -webkit-appearance: none;
   margin: 0;
 }
+
+// Facebook login
+.btn-facebook {
+  display: block;
+  background-color: #4e69a0;
+  border-color: transparent;
+}
+
+.btn-facebook:hover {
+  background-color: #5975ae;
+  color: white;
+}
+
+.btn-sso {
+  text-transform: none;
+  font-size: 16px;
+  font-weight: 300;
+  padding: 14px 16px;
+  color: #fff;
+}
+
+.facebook-icon {
+  height: 24px;
+  width: 24px;
+  display: block;
+  float: left;
+  vertical-align: middle;
+}
