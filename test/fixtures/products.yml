@@ -1,11 +1,25 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+product_cereal_bar_banana:
+  name: "Barra de Cereal Nutry Aveia, Banana e Mel"
+  description: Faker::Lorem.paragraph
+  supplier: supplier_mercado_fresh
 
-one:
-  name: MyString
-  description: MyText
-  deleted_at: 2015-05-15 14:56:34
+product_cereal_bar_apple:
+  name: "Barra de Cereal Nutry Maçã"
+  description: Faker::Lorem.paragraph
+  supplier: supplier_mercado_fresh
 
-two:
-  name: MyString
-  description: MyText
-  deleted_at: 2015-05-15 14:56:34
+product_cereal_bar_apple_extra:
+  name: "Barra de Cereal Nutry Maçã 21g"
+  description: Faker::Lorem.paragraph
+  supplier: supplier_extra
+
+product_cereal_bar_apple_pda:
+  name: "Barra de Cereal Nutry Maçã 21g"
+  description: Faker::Lorem.paragraph
+  supplier: supplier_pda
+
+product_choco_soy_break_mercado_natural:
+  name: "Choco Soy Break"
+  description: "Barra de chocolate sem lactose"
+  supplier: supplier_mercado_natural
+

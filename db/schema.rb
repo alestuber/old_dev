@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150515175634) do
+ActiveRecord::Schema.define(version: 20150515145847) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,17 +20,19 @@ ActiveRecord::Schema.define(version: 20150515175634) do
     t.string   "name"
     t.text     "description"
     t.datetime "deleted_at"
+    t.integer  "supplier_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
 
   add_index "products", ["deleted_at"], name: "index_products_on_deleted_at", using: :btree
+  add_index "products", ["supplier_id"], name: "index_products_on_supplier_id", using: :btree
 
   create_table "suppliers", force: :cascade do |t|
     t.string   "name"
+    t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.datetime "deleted_at"
   end
 
   add_index "suppliers", ["deleted_at"], name: "index_suppliers_on_deleted_at", using: :btree
@@ -65,19 +67,20 @@ ActiveRecord::Schema.define(version: 20150515175634) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "variants", force: :cascade do |t|
-    t.string   "sku"
+    t.string   "name"
+    t.string   "sku",                                default: "",    null: false
     t.float    "ean"
-    t.decimal  "price"
-    t.boolean  "is_master"
-    t.decimal  "cost_price"
-    t.integer  "supplier_id"
+    t.decimal  "price",      precision: 8, scale: 2
+    t.decimal  "cost_price", precision: 8, scale: 2
+    t.boolean  "is_master",                          default: false
+    t.integer  "position"
+    t.integer  "product_id"
     t.datetime "deleted_at"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                                         null: false
+    t.datetime "updated_at",                                         null: false
   end
 
   add_index "variants", ["deleted_at"], name: "index_variants_on_deleted_at", using: :btree
-  add_index "variants", ["supplier_id"], name: "index_variants_on_supplier_id", using: :btree
 
-  add_foreign_key "variants", "suppliers"
+  add_foreign_key "products", "suppliers"
 end

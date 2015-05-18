@@ -1,24 +1,31 @@
-variant_cerealbar:
-  sku: 'MFR-22251505-k'
+variant_cereal_bar_banana_master:
+  sku: 'MFR-0001'
   ean: 7891331010508
   price: 1.99
   is_master: true
   cost_price: 0.99
-  supplier: supplier_mercado_fresh
+  product: product_cereal_bar_banana
+
+variant_cereal_bar_banana:
+  sku: 'MFR-0002'
+  ean: 7891331010508
+  price: 2.99
+  is_master: false
+  cost_price: 0.99
+  product: product_cereal_bar_banana
 
 variant_apple:
-  sku: 'PDA-22451805-j'
+  sku: 'PDA-0001'
   ean: 8698533614935
   price: 19.99
   is_master: false
   cost_price: 9.99
-  supplier: supplier_pao_de_acucar
+  product: product_apple
 
 variant_product:
-  sku: 'MFR-22451805-j'
+  sku: 'MFR-0002'
   ean: 8698533614935
   price: 9.99
   is_master: false
   cost_price: 9.99
-  supplier: supplier_mercado_fresh
   deleted_at: '2015-05-14 15:07:46'

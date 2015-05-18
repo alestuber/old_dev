@@ -2,7 +2,7 @@ require 'test_helper'
 
 class SupplierTest < ActiveSupport::TestCase
   test 'supplier count' do
-    assert_equal 33, Supplier.count
+    assert_equal 34, Supplier.count
   end
 
   test 'invalid without name' do
@@ -18,5 +18,10 @@ class SupplierTest < ActiveSupport::TestCase
   test 'mercado fresh supplier' do
     supplier = suppliers(:supplier_mercado_fresh)
     assert_equal 'Mercado Fresh', supplier.name
+  end
+
+  test 'products from a supplier' do
+    supplier = suppliers(:supplier_mercado_natural)
+    assert_equal [products(:product_choco_soy_break_mercado_natural)], supplier.products, "Mercado natural should only have one product: choco_soy"
   end
 end
