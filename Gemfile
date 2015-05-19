@@ -22,6 +22,7 @@ gem 'sprockets-rails', '2.3.1'
 gem 'rails-i18n', '4.0.4'
 gem 'devise-i18n', '0.12.0'
 gem 'omniauth-facebook', '2.0.1'
+gem 'activeadmin', '1.0.0.pre1'
 
 group :development, :test do
   gem 'byebug', '4.0.5'

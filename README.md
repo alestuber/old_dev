@@ -47,6 +47,10 @@ to watch the tests being run as you change the files
 Refer to [rails-i18n pt-BR file](https://github.com/svenfuchs/rails-i18n/blob/master/rails/locale/pt-BR.yml)
 if you need to override any translation to Brazilian Portuguese.
 
+### Active Admin
+
+Documentation on: https://github.com/activeadmin/activeadmin/tree/master/docs#activeadmin-documentation
+
 ### To Be Documented
 
 * Services (job queues, cache servers, search engines, etc.)
