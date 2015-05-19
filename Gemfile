@@ -19,6 +19,7 @@ gem 'high_voltage', '2.3.0'
 gem 'paranoia', '2.1.2'
 gem 'sprockets', '3.1.0'
 gem 'sprockets-rails', '2.3.1'
+gem 'rails-i18n', '4.0.4'
 
 group :development, :test do
   gem 'byebug', '4.0.5'
