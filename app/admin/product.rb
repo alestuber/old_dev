@@ -14,5 +14,5 @@ ActiveAdmin.register Product do
   #   permitted
   # end
 
-
+  permit_params :name, :description, :supplier_id
 end
