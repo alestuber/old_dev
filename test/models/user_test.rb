@@ -7,6 +7,12 @@ class UserTest < ActiveSupport::TestCase
     @other_user = users(:mauricio)
   end
 
+  test "should all users be valid" do
+    User.all.each do |p|
+      assert p.valid?
+    end
+  end
+
   # Devise validations tests
   test "email should be unique" do
     @other_user.email = @user.email
