@@ -16,6 +16,27 @@ ActiveRecord::Schema.define(version: 20150517192614) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "products", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "deleted_at"
+    t.integer  "supplier_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "products", ["deleted_at"], name: "index_products_on_deleted_at", using: :btree
+  add_index "products", ["supplier_id"], name: "index_products_on_supplier_id", using: :btree
+
+  create_table "suppliers", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "deleted_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "suppliers", ["deleted_at"], name: "index_suppliers_on_deleted_at", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -47,4 +68,21 @@ ActiveRecord::Schema.define(version: 20150517192614) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  create_table "variants", force: :cascade do |t|
+    t.string   "name"
+    t.string   "sku",                                default: "",    null: false
+    t.float    "ean"
+    t.decimal  "price",      precision: 8, scale: 2
+    t.decimal  "cost_price", precision: 8, scale: 2
+    t.boolean  "is_master",                          default: false
+    t.integer  "position"
+    t.integer  "product_id"
+    t.datetime "deleted_at"
+    t.datetime "created_at",                                         null: false
+    t.datetime "updated_at",                                         null: false
+  end
+
+  add_index "variants", ["deleted_at"], name: "index_variants_on_deleted_at", using: :btree
+
+  add_foreign_key "products", "suppliers"
 end

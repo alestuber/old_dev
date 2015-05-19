@@ -1,0 +1,25 @@
+product_cereal_bar_banana:
+  name: "Barra de Cereal Nutry Aveia, Banana e Mel"
+  description: Faker::Lorem.paragraph
+  supplier: supplier_mercado_fresh
+
+product_cereal_bar_apple:
+  name: "Barra de Cereal Nutry Maçã"
+  description: Faker::Lorem.paragraph
+  supplier: supplier_mercado_fresh
+
+product_cereal_bar_apple_extra:
+  name: "Barra de Cereal Nutry Maçã 21g"
+  description: Faker::Lorem.paragraph
+  supplier: supplier_extra
+
+product_cereal_bar_apple_pda:
+  name: "Barra de Cereal Nutry Maçã 21g"
+  description: Faker::Lorem.paragraph
+  supplier: supplier_pda
+
+product_choco_soy_break_mercado_natural:
+  name: "Choco Soy Break"
+  description: "Barra de chocolate sem lactose"
+  supplier: supplier_mercado_natural
+
