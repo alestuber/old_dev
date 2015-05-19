@@ -20,11 +20,8 @@ gem 'paranoia', '2.1.2'
 gem 'sprockets', '3.1.0'
 gem 'sprockets-rails', '2.3.1'
 gem 'rails-i18n', '4.0.4'
-<<<<<<< HEAD
 gem 'seed-fu', '2.3.5'
-=======
 gem 'devise-i18n', '0.12.0'
->>>>>>> 0a191af... Add translations for devise
 
 group :development, :test do
   gem 'byebug', '4.0.5'
