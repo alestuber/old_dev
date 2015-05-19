@@ -1,6 +1,12 @@
 require 'test_helper'
 
 class SupplierTest < ActiveSupport::TestCase
+  test "should all suppliers be valid" do
+    Supplier.all.each do |p|
+      assert p.valid?
+    end
+  end
+
   test 'supplier count' do
     assert_equal 34, Supplier.count
   end
