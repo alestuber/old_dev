@@ -1,10 +1,24 @@
 pt-BR:
   activerecord:
       models:
+        product:
+          one: Produto
+          other: Produtos
+        supplier:
+          one: Fornecedor
+          other: Fornecedores
         user:
           one: Usuário
           other: Usuários
+        variant:
+          one: Variação
+          other: Variações
       attributes:
+        product:
+          name: Nome
+          description: Descrição
+        supplier:
+          name: Nome
         user:
           email: E-mail
           password: Senha
@@ -15,3 +29,13 @@ pt-BR:
           telephone: Telefone
           date_of_birth: Data de Nascimento
           cpf: CPF
+        variant:
+          name: Nome
+          sku: SKU
+          ean: EAN
+          price: Preço
+          cost_price: Preço de custo
+          is_master: É mestre
+          position: Posição
+
+
