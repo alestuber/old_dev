@@ -1,6 +1,8 @@
 - if object.errors.any?
   #error_explanation
-    .alert.alert-danger O formulário contém #{pluralize(object.errors.count, "erro")}.
+    = content_tag :div, class: "alert alert-dismissible alert-danger fade in", role: "alert" do
+      = content_tag :button, '&times;'.html_safe, class: "close", type: "button", data: { dismiss: "alert" }
+      | O formulário contém #{pluralize(object.errors.count, "erro")}.
     ul
       - object.errors.full_messages.each do |msg|
         li = msg

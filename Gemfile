@@ -21,6 +21,7 @@ gem 'sprockets', '3.1.0'
 gem 'sprockets-rails', '2.3.1'
 gem 'rails-i18n', '4.0.4'
 gem 'seed-fu', '2.3.5'
+gem 'rails-i18n', '4.0.4'
 gem 'devise-i18n', '0.12.0'
 
 group :development, :test do
