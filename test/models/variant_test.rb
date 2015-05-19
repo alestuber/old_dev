@@ -10,6 +10,12 @@ class VariantTest < ActiveSupport::TestCase
     @variant = nil
   end
 
+  test "should all variants be valid" do
+    Variant.all.each do |p|
+      assert p.valid?
+    end
+  end
+
   test "should validate price is greater than 0" do
     @variant.price = -1
     assert_not @variant.valid?

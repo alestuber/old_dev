@@ -1,6 +1,3 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-
 alex:
   first_name: Alexandre
   last_name: Stuber
@@ -9,17 +6,17 @@ alex:
   cpf: 35984728891
   encrypted_password: <%= Devise.bcrypt(User, 'password') %>
   confirmed_at: <%= Time.zone.now %>
-  date_of_birth: <%= Time.zone.now %>
+  date_of_birth: <%= 28.years.ago %>
 
 mauricio:
   first_name: Mauricio
   last_name: Vieira
-  email: mail@example.com
+  email: mauricio@example.com
   telephone: 50551001
-  cpf: 35984728892
-  encrypted_password: <%= Devise.bcrypt(User, 'password') %>
+  cpf: 54426485070
+  encrypted_password: <%= Devise.bcrypt(User, '123123') %>
   confirmed_at: <%= Time.zone.now %>
-  date_of_birth: <%= Time.zone.now %>
+  date_of_birth: <%= 34.years.ago %>
 
 <% 9.times do |n| %>
 user_<%= n %>:
@@ -30,5 +27,5 @@ user_<%= n %>:
   cpf: <%= "2598472889#{n}" %>
   encrypted_password: <%= Devise.bcrypt(User, 'password') %>
   confirmed_at: <%= Time.zone.now %>
-  date_of_birth: <%= Time.zone.now %>
+  date_of_birth: <%= (18+n).years.ago %>
 <% end %>

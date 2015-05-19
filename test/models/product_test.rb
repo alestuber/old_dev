@@ -9,6 +9,12 @@ class ProductTest < ActiveSupport::TestCase
     @cereal_bar = nil
   end
 
+  test "should all products be valid" do
+    Product.all.each do |p|
+      assert p.valid?
+    end
+  end
+
   test "should have name" do
     assert @cereal_bar.valid?
 
