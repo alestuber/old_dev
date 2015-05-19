@@ -8,7 +8,7 @@ product_cerealbar:
 
 product_apple:
   sku: 'Red Apple'
-  ean: 01618419
+  ean: 1618419
   price: 19.99
   is_master: false
   cost_price: 9.99

@@ -20,6 +20,7 @@ gem 'paranoia', '2.1.2'
 gem 'sprockets', '3.1.0'
 gem 'sprockets-rails', '2.3.1'
 gem 'rails-i18n', '4.0.4'
+gem 'seed-fu', '2.3.5'
 
 group :development, :test do
   gem 'byebug', '4.0.5'
