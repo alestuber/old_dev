@@ -14,18 +14,61 @@ variant_cereal_bar_banana:
   cost_price: 0.99
   product: product_cereal_bar_banana
 
-variant_apple:
-  sku: 'PDA-0001'
+variant_apple_gala_extra_master:
+  sku: 'EXT-0001'
   ean: 8698533614935
-  price: 19.99
-  is_master: false
-  cost_price: 9.99
-  product: product_apple
+  price: 0.99
+  is_master: true
+  cost_price: 0.19
+  product: product_apple_gala_extra
 
-variant_product:
-  sku: 'MFR-0002'
+variant_apple_gala_extra:
+  sku: 'EXT-0002'
   ean: 8698533614935
-  price: 9.99
+  price: 0.99
   is_master: false
-  cost_price: 9.99
-  deleted_at: '2015-05-14 15:07:46'
+  cost_price: 0.19
+  product: product_apple_gala_extra
+
+variant_apple_gala_mf_master:
+  sku: 'MFR-0011'
+  ean: 8698533614935
+  price: 0.99
+  is_master: true
+  cost_price: 0.19
+  product: product_apple_gala_mf
+
+variant_apple_gala_mf:
+  sku: 'MFR-0012'
+  ean: 8698533614935
+  price: 0.99
+  is_master: false
+  cost_price: 0.19
+  product: product_apple_gala_mf
+
+variant_tomato_carmem_mf_master:
+  sku: 'MFR-0112'
+  price: 0.99
+  is_master: true
+  cost_price: 0.19
+  product: product_tomato_carmem_mf
+
+variant_tomato_carmem_mf_green:
+  sku: 'MFR-0113'
+  price: 0.99
+  is_master: false
+  product: product_tomato_carmem_mf
+
+variant_tomato_carmem_mf_salad:
+  sku: 'MFR-0114'
+  price: 1.32
+  is_master: false
+  cost_price: 0.19
+  product: product_tomato_carmem_mf
+
+variant_banana_prata_pda_2kg:
+  sku: 'PDA-0023'
+  price: 9.96
+  is_master: true
+  cost_price: 2.27
+  product: product_banana_prata_pda

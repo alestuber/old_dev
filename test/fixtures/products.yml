@@ -23,3 +23,23 @@ product_choco_soy_break_mercado_natural:
   description: "Barra de chocolate sem lactose"
   supplier: supplier_mercado_natural
 
+product_apple_gala_extra:
+  name: "Maçã Gala Pequena"
+  description: Faker::Lorem.paragraph(2)
+  supplier: supplier_extra
+
+product_apple_gala_mf:
+  name: "Maçã Gala"
+  description: Faker::Lorem.paragraph(2)
+  supplier: supplier_mercado_fresh
+
+product_tomato_carmem_mf:
+  name: "Tomate Carmem"
+  description: Faker::Lorem.paragraph(2)
+  supplier: supplier_mercado_fresh
+
+product_banana_prata_pda:
+  name: "Banana prata"
+  description: Faker::Lorem.paragraph(2)
+  supplier: supplier_pda
+
