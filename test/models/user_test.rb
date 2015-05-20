@@ -138,11 +138,11 @@ class UserTest < ActiveSupport::TestCase
     assert_not @user.valid?
   end
 
-  test "telephone should have less or equal to 11 characters" do
-    assert @user.telephone.size < 11
-    @user.telephone = "9" * 12
+  test "telephone should have less or equal to 12 characters" do
+    assert @user.telephone.size <= 12
+    @user.telephone = "9" * 13
     assert_not @user.valid?
-    @user.telephone = "9" * 11
+    @user.telephone = "9" * 12
     assert @user.valid?
   end
 

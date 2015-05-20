@@ -20,15 +20,33 @@ ActiveAdmin.register User do
 
   index do
     column :id
+
     column :email
+
     column :first_name
+
     column :last_name
-    column :telephone
+
+    column :telephone do |user|
+      phone_formatter user.telephone
+    end
+
     column :date_of_birth do |user|
       date_formatter user.date_of_birth
     end
+
     column :cpf do |user|
       cpf_formatter user.cpf
+    end
+
+    column "Confirmado?", :confirmed do |user|
+      if user.confirmed_at.nil?
+        "Não"
+      elsif !user.unconfirmed_email.nil?
+        "Alteração pendente"
+      else
+        "Sim"
+      end
     end
     actions
   end
