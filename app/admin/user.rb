@@ -1,5 +1,3 @@
-include UserHelper # should include the helper in all active admin resources that will use it!
-
 ActiveAdmin.register User do
 
 
