@@ -32,6 +32,7 @@ pt-BR:
           telephone: Telefone
           date_of_birth: Data de Nascimento
           cpf: CPF
+          id: ID
         variant:
           name: Nome
           sku: SKU

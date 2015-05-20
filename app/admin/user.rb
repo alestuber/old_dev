@@ -1,3 +1,5 @@
+include UserHelper # should include the helper in all active admin resources that will use it!
+
 ActiveAdmin.register User do
 
 
@@ -15,5 +17,38 @@ ActiveAdmin.register User do
   # end
 
   permit_params :email, :first_name, :last_name, :cpf, :telephone, :date_of_birth
+
+  index do
+    column :id
+
+    column :email
+
+    column :first_name
+
+    column :last_name
+
+    column :telephone do |user|
+      phone_formatter user.telephone
+    end
+
+    column :date_of_birth do |user|
+      date_formatter user.date_of_birth
+    end
+
+    column :cpf do |user|
+      cpf_formatter user.cpf
+    end
+
+    column "Confirmado?", :confirmed do |user|
+      if user.confirmed_at.nil?
+        "Não"
+      elsif !user.unconfirmed_email.nil?
+        "Alteração pendente"
+      else
+        "Sim"
+      end
+    end
+    actions
+  end
 
 end
