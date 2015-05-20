@@ -24,6 +24,11 @@ class ProductTest < ActiveSupport::TestCase
 
   test "master variant" do
     assert_equal 'MFR-0001', @cereal_bar.master.sku
-    # assert_equal 'PDA-0001', @apple.master.sku
+  end
+
+  test "has many variants" do
+    apple_extra = products(:product_apple_gala_extra)
+    assert_equal [variants(:variant_apple_gala_extra)], apple_extra.variants
+    assert_equal variants(:variant_apple_gala_extra_master, :variant_apple_gala_extra), apple_extra.variants_including_master
   end
 end
