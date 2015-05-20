@@ -19,6 +19,8 @@ ActiveAdmin.register User do
   permit_params :email, :first_name, :last_name, :cpf, :telephone, :date_of_birth
 
   index do
+    selectable_column
+
     column :id
 
     column :email
