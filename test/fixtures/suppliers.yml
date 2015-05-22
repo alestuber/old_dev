@@ -15,5 +15,5 @@ supplier_mercado_natural:
 
 <% 30.times do |n| %>
 supplier_<%= n %>>:
-  name: Faker::Company.name
+  name: <%= FFaker::Company.name %>
 <% end %>

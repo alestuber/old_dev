@@ -20,8 +20,8 @@ mauricio:
 
 <% 9.times do |n| %>
 user_<%= n %>:
-  first_name: <%= "Name " %>
-  last_name: <%= "Lastname #{n}" %>
+  first_name: <%= FFaker::NameBR.first_name %>
+  last_name: <%= FFaker::NameBR.last_name %>
   email: <%= "email#{n}@example.com" %>
   telephone: <%= "5055200#{n}" %>
   cpf: <%= "2598472889#{n}" %>

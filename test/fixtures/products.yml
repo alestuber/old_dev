@@ -1,21 +1,21 @@
 product_cereal_bar_banana:
   name: "Barra de Cereal Nutry Aveia, Banana e Mel"
-  description: Faker::Lorem.paragraph
+  description: <%= FFaker::Lorem.paragraph %>
   supplier: supplier_mercado_fresh
 
 product_cereal_bar_apple:
   name: "Barra de Cereal Nutry Maçã"
-  description: Faker::Lorem.paragraph
+  description: <%= FFaker::Lorem.paragraph %>
   supplier: supplier_mercado_fresh
 
 product_cereal_bar_apple_extra:
   name: "Barra de Cereal Nutry Maçã 21g"
-  description: Faker::Lorem.paragraph
+  description: <%= FFaker::Lorem.paragraph %>
   supplier: supplier_extra
 
 product_cereal_bar_apple_pda:
   name: "Barra de Cereal Nutry Maçã 21g"
-  description: Faker::Lorem.paragraph
+  description: <%= FFaker::Lorem.paragraph %>
   supplier: supplier_pda
 
 product_choco_soy_break_mercado_natural:
@@ -25,21 +25,21 @@ product_choco_soy_break_mercado_natural:
 
 product_apple_gala_extra:
   name: "Maçã Gala Pequena"
-  description: Faker::Lorem.paragraph(2)
+  description: <%= FFaker::Lorem.paragraph(2) %>
   supplier: supplier_extra
 
 product_apple_gala_mf:
   name: "Maçã Gala"
-  description: Faker::Lorem.paragraph(2)
+  description: <%= FFaker::Lorem.paragraph(2) %>
   supplier: supplier_mercado_fresh
 
 product_tomato_carmem_mf:
   name: "Tomate Carmem"
-  description: Faker::Lorem.paragraph(2)
+  description: <%= FFaker::Lorem.paragraph(2) %>
   supplier: supplier_mercado_fresh
 
 product_banana_prata_pda:
   name: "Banana prata"
-  description: Faker::Lorem.paragraph(2)
+  description: <%= FFaker::Lorem.paragraph(2) %>
   supplier: supplier_pda
 
