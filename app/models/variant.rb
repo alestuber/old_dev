@@ -1,12 +1,11 @@
 class Variant < ActiveRecord::Base
+  mount_uploaders :images, ImageUploader
   acts_as_paranoid
 
   belongs_to :product, touch: true, class_name: 'Product', inverse_of: :variants
   delegate :name, :description, to: :product
 
   validates :price, :numericality => { greater_than_or_equal_to: 0 }
-
-  mount_uploaders :images, ImageUploader
 
   def name_and_sku
     "#{name} - #{sku}"
