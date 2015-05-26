@@ -42,6 +42,19 @@ guard
 
 to watch the tests being run as you change the files
 
+### How to run the security scanner
+
+
+We are using [brakeman scanner](http://brakemanscanner.org/) to keep an eye on
+the security issues. To run:
+
+```
+rake brakeman:run
+```
+
+TODO: we must add the security verification to our continuous integration process.
+
+
 ### Internationalization
 
 Refer to [rails-i18n pt-BR file](https://github.com/svenfuchs/rails-i18n/blob/master/rails/locale/pt-BR.yml)
