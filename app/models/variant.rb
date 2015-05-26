@@ -1,4 +1,5 @@
 class Variant < ActiveRecord::Base
+  mount_uploaders :images, ImageUploader
   acts_as_paranoid
 
   belongs_to :product, touch: true, class_name: 'Product', inverse_of: :variants

@@ -19,3 +19,4 @@ Gemfile.lock
 !/log/.keep
 /tmp
 vendor/bundle/
+public/uploads
