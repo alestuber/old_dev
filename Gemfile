@@ -26,8 +26,10 @@ gem 'omniauth-facebook', '2.0.1'
 gem 'activeadmin', '1.0.0.pre1'
 gem 'carrierwave', github:'carrierwaveuploader/carrierwave'
 
-
-gem "brakeman", :require => false
+# Do not load these helper gems on the application
+# Always use the lastest version
+gem 'rubycritic', :require => false
+gem 'brakeman', :require => false
 
 group :development, :test do
   gem 'byebug', '4.0.5'
@@ -35,6 +37,7 @@ group :development, :test do
   gem 'web-console', '2.1.2'
   gem 'spring', '1.3.6'
   gem 'guard', '2.12.5'
+  gem 'guard-rubycritic', '1.4.0'
   gem 'bullet', '4.14.7'
   gem 'dotenv-rails', '2.0.1'
   gem 'ffaker', '2.0.0'

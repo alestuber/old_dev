@@ -21,3 +21,9 @@ def integration_tests(resource = :all)
       Dir["test/integration/#{resource}_*.rb"]
     end
 end
+
+guard "rubycritic" do
+  watch(%r{^app/(.+)\.rb$})
+  watch(%r{^lib/(.+)\.rb$})
+  watch(%r{^test/(.+)\.rb$})
+end
