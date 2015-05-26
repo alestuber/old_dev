@@ -13,6 +13,7 @@ gem 'turbolinks', '2.5.3'
 gem 'jbuilder', '2.2.13'
 gem 'sdoc', '0.4.1', group: :doc
 gem 'slim-rails', '3.0.1'
+gem 'slim', '3.0.3'
 gem 'devise', '3.4.1'
 gem 'mandrill-api', '1.0.53'
 gem 'high_voltage', '2.3.0'
@@ -24,6 +25,9 @@ gem 'devise-i18n', '0.12.0'
 gem 'omniauth-facebook', '2.0.1'
 gem 'activeadmin', '1.0.0.pre1'
 gem 'carrierwave', github:'carrierwaveuploader/carrierwave'
+
+
+gem "brakeman", :require => false
 
 group :development, :test do
   gem 'byebug', '4.0.5'
