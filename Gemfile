@@ -13,7 +13,7 @@ gem 'turbolinks', '2.5.3'
 gem 'jbuilder', '2.2.13'
 gem 'sdoc', '0.4.1', group: :doc
 gem 'slim-rails', '3.0.1'
-gem 'slim', '3.0.3'
+gem 'slim', '3.0.3' # Same version of slim-rails. It's here due to brakeman
 gem 'devise', '3.4.1'
 gem 'mandrill-api', '1.0.53'
 gem 'high_voltage', '2.3.0'
