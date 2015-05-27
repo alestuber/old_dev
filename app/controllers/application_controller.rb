@@ -5,11 +5,11 @@ class ApplicationController < ActionController::Base
 
   protected
 
-    def devise_parameter_sanitizer
-      if resource_class == User
-        UserParams.new(User, :user, params)
-      else
-        super # Use the default one
-      end
+  def devise_parameter_sanitizer
+    if resource_class == User
+      UserParams.new(User, :user, params)
+    else
+      super # Use the default one
     end
+  end
 end
