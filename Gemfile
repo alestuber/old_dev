@@ -26,11 +26,6 @@ gem 'omniauth-facebook', '2.0.1'
 gem 'activeadmin', '1.0.0.pre1'
 gem 'carrierwave', github:'carrierwaveuploader/carrierwave'
 
-# Do not load these helper gems on the application
-# Always use the lastest version
-gem 'rubycritic', :require => false
-gem 'brakeman', :require => false
-
 group :development, :test do
   gem 'byebug', '4.0.5'
   gem 'sqlite3', '1.3.10'
@@ -45,6 +40,12 @@ end
 
 group :development do
   gem 'letter_opener', '1.4.0'
+
+  # Do not load these helper gems on the application
+  # Always use the lastest version
+  gem 'rubycritic', require: false
+  gem 'brakeman',   require: false
+  gem 'rubocop',    require: false
 end
 
 group :test do
