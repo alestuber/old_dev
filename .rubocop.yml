@@ -22,3 +22,6 @@ Metrics/ClassLength:
 Metrics/LineLength:
   Max: 110
 
+Style/AlignHash:
+  EnforcedHashRocketStyle: table
+  EnforcedColonStyle: table

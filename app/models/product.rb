@@ -17,20 +17,20 @@ class Product < ActiveRecord::Base
   belongs_to :supplier
 
   has_one :master,
-    -> { where is_master: true },
-    inverse_of: :product,
-    class_name: 'Variant'
+          -> { where is_master: true },
+          inverse_of: :product,
+          class_name: 'Variant'
 
   has_many :variants,
-    -> { where(is_master: false).order("#{::Variant.quoted_table_name}.position ASC") },
-    inverse_of: :product,
-    class_name: 'Variant'
+           -> { where(is_master: false).order("#{::Variant.quoted_table_name}.position ASC") },
+           inverse_of: :product,
+           class_name: 'Variant'
 
   has_many :variants_including_master,
-    -> { order("#{::Variant.quoted_table_name}.position ASC") },
-    inverse_of: :product,
-    class_name: 'Variant',
-    dependent: :destroy
+           -> { order("#{::Variant.quoted_table_name}.position ASC") },
+           inverse_of: :product,
+           class_name: 'Variant',
+           dependent:  :destroy
 
   validates :name, presence: true
 
