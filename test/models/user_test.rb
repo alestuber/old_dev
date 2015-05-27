@@ -150,5 +150,4 @@ class UserTest < ActiveSupport::TestCase
     @user.cpf = "9" * 11
     assert @user.valid?
   end
-
 end

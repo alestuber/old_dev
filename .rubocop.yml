@@ -27,4 +27,7 @@ Lint/UselessAssignment:
   Enabled: true
 
 Metrics/AbcSize:
-  Max: 42
+  Max: 15
+
+Metrics/ClassLength:
+  Max: 100
