@@ -1,0 +1,29 @@
+AllCops:
+  Include:
+    - '**/Rakefile'
+    - '**/config.ru'
+  Exclude:
+    - bin/spring
+    - bin/rake
+    - bin/rails
+    - config/initializers/active_admin.rb
+    - config/initializers/devise.rb
+    - db/schema.rb
+    - 'db/migrate/**/*'
+    - 'vendor/bundle/**/*'
+
+Metrics/AbcSize:
+  Max: 27
+
+Metrics/ClassLength:
+  Max: 127
+
+Metrics/LineLength:
+  Max: 110
+
+Style/AlignHash:
+  EnforcedHashRocketStyle: table
+  EnforcedColonStyle: table
+
+Style/Documentation:
+  Enabled: false
