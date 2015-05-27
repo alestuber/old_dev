@@ -5,7 +5,7 @@ class Variant < ActiveRecord::Base
   belongs_to :product, touch: true, class_name: 'Product', inverse_of: :variants
   delegate :name, :description, to: :product
 
-  validates :price, :numericality => { greater_than_or_equal_to: 0 }
+  validates :price, numericality: { greater_than_or_equal_to: 0 }
 
   def name_and_sku
     "#{name} - #{sku}"
