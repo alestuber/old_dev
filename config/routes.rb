@@ -9,8 +9,8 @@ Rails.application.routes.draw do
              path_names: { new: 'sign_up' },
              controller: 'devise/registrations',
              as:         :user_registration do
-        get :cancel
-    end
+               get :cancel
+             end
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
