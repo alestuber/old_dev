@@ -1,7 +1,6 @@
 require 'test_helper'
 
 class VariantTest < ActiveSupport::TestCase
-
   def setup
     @variant = variants(:variant_cereal_bar_banana_master)
   end
@@ -34,5 +33,4 @@ class VariantTest < ActiveSupport::TestCase
     assert @variant.is_master?
     assert_equal @variant, @variant.product.master
   end
-
 end

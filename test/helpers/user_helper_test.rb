@@ -1,7 +1,6 @@
 require 'test_helper'
 
 class UserHelperTest < ActionView::TestCase
-
   test "cpf formatter" do
     assert_equal "359.847.288-91", cpf_formatter(users(:alex).cpf)
   end
@@ -38,5 +37,4 @@ class UserHelperTest < ActionView::TestCase
     assert_nil phone_formatter("5558354")
     assert_nil phone_formatter("1011950558354")
   end
-
 end
