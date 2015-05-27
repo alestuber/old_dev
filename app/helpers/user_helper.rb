@@ -9,15 +9,11 @@ module UserHelper
   end
 
   def phone_formatter(phone)
-    formatted = nil
-    formatted = "%s-%s" % [ phone[0,4], phone[4,4] ] if phone.length == 8 # home phone
-    formatted = "%s-%s" % [ phone[0,5], phone[5,4] ] if phone.length == 9 # cellphone
-    formatted = "(%s) %s-%s" % [phone[0,2], phone[2,4], phone[6,4] ] if phone.length == 10 # home phone with two digits area code
-    formatted = "(%s) %s-%s" % [phone[1,2], phone[3,4], phone[7,4] ] if phone.length == 11 && phone[0] == "0" # home phone with three digits area code - first digit is 0
-    formatted = "(%s) %s-%s" % [phone[0,2], phone[2,5], phone[7,4] ] if phone.length == 11 && phone[0] != "0" # cell phone with two digits area code
-    formatted = "(%s) %s-%s" % [phone[1,2], phone[3,5], phone[8,4] ] if phone.length == 12  && phone[0] == "0" # cell phone with three digits area code - first digit is 0
-
-    return formatted
+    return nil if phone.length < 8 || phone.length > 12
+    phone.gsub!(/^0+/,'')
+    phone.gsub!(/(\d{1,2})(\d{4,5})(\d{4}$)/,"(\\1) \\2-\\3") if phone.length > 9
+    phone.gsub!(/(\d{4,5})(\d{4}$)/,"\\1-\\2") if phone.length <= 9
+    phone
   end
 
 end
