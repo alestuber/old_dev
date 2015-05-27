@@ -18,3 +18,9 @@ Lint/EndAlignment:
 
 Lint/HandleExceptions:
   Enabled: true
+
+Lint/UnusedBlockArgument:
+  Enabled: true
+
+Lint/UselessAssignment:
+  Enabled: true

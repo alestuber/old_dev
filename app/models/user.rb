@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   validates :cpf, presence: true, length: { is: 11 }, uniqueness: true, numericality: true
 
   def self.from_omniauth(auth)
-    user = where(provider: auth.provider, uid: auth.uid).first || User.new
+    where(provider: auth.provider, uid: auth.uid).first || User.new
   end
 
   def self.new_with_session(params, session)
