@@ -54,6 +54,21 @@ rake brakeman:run
 
 TODO: we must add the security verification to our continuous integration process.
 
+### How to run the code analysys
+
+While we do not have a [Codeclimate](https://codeclimate.com) subscription, we
+are using [rubycritic](https://github.com/whitesmith/rubycritic):
+
+```
+bundle exec rubycritic app lib tests
+```
+
+then visualize it:
+
+```
+open tmp/rubycritic/overview.html
+```
+
 
 ### Internationalization
 
