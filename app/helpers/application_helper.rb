@@ -1,5 +1,4 @@
 module ApplicationHelper
-
   # returns the full title on a per-page basis
   def full_title(page_title = "")
     base_title = "Mercado Fresh"
@@ -9,5 +8,4 @@ module ApplicationHelper
       "#{page_title} - #{base_title}"
     end
   end
-
 end
