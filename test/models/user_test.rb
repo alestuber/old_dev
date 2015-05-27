@@ -8,8 +8,8 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "should all users be valid" do
-    User.all.each do |p|
-      assert p.valid?
+    User.all.each do |user|
+      assert user.valid?
     end
   end
 
@@ -46,7 +46,6 @@ class UserTest < ActiveSupport::TestCase
       @user.email = valid_address
       assert @user.valid?, "#{valid_address.inspect} should be valid"
     end
-
   end
 
   test "email validation should reject invalid email addresses" do
@@ -56,7 +55,6 @@ class UserTest < ActiveSupport::TestCase
       @user.email = invalid_address
       assert_not @user.valid?, "#{invalid_address.inspect} should be invalid"
     end
-
   end
 
   test "account should not be activated until the email address is confirmed" do
@@ -117,25 +115,13 @@ class UserTest < ActiveSupport::TestCase
     assert @user.valid?
   end
 
-  test "first name should be present" do
-    @user.first_name = "    "
-    assert_not @user.valid?
-    @user.first_name = nil
-    assert_not @user.valid?
-  end
-
-  test "last name should be present" do
-    @user.last_name = "    "
-    assert_not @user.valid?
-    @user.last_name = nil
-    assert_not @user.valid?
-  end
-
-  test "telephone should be present" do
-    @user.telephone = "    "
-    assert_not @user.valid?
-    @user.telephone = nil
-    assert_not @user.valid?
+  [:first_name, :last_name, :telephone, :date_of_birth, :cpf].each do |attrib|
+    test "#{attrib} should be present" do
+      @user[attrib] = "    "
+      assert_not @user.valid?
+      @user[attrib]   = nil
+      assert_not @user.valid?
+    end
   end
 
   test "telephone should have less or equal to 12 characters" do
@@ -146,20 +132,9 @@ class UserTest < ActiveSupport::TestCase
     assert @user.valid?
   end
 
-  test "birthdate should be present and be of datetime type" do
-    @user.date_of_birth = "    "
-    assert_not @user.valid?
-    @user.date_of_birth = nil
-    assert_not @user.valid?
+  test "birthdate should be of datetime type" do
     @user.date_of_birth = Time.now
     assert @user.valid?
-  end
-
-  test "cpf should be present" do
-    @user.cpf = "    "
-    assert_not @user.valid?
-    @user.cpf = nil
-    assert_not @user.valid?
   end
 
   test "cpf should be unique" do
