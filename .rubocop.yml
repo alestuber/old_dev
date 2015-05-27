@@ -4,11 +4,13 @@ AllCops:
     - '**/Rakefile'
     - '**/config.ru'
   Exclude:
-    - db/schema.rb
-    - 'db/migrate/**/*'
     - bin/spring
     - bin/rake
     - bin/rails
+    - config/initializers/active_admin.rb
+    - config/initializers/devise.rb
+    - db/schema.rb
+    - 'db/migrate/**/*'
     - 'vendor/bundle/**/*'
 
 Lint/AssignmentInCondition:
@@ -35,3 +37,5 @@ Metrics/ClassLength:
 Metrics/CyclomaticComplexity:
   Max: 6
 
+Metrics/LineLength:
+  Max: 110

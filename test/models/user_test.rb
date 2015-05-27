@@ -28,7 +28,9 @@ class UserTest < ActiveSupport::TestCase
     mixed_case_email = "Bla@BlAkE.cOm"
     @user.email = mixed_case_email
     @user.save
-    @user.confirm! if @user.respond_to? :confirm! # The respond_to :confirm! is here to make the test work if :confirmable (Devise) is off, since this test shouldn't depend on confirmable.
+    # The respond_to :confirm! is here to make the test work if :confirmable
+    #  (Devise) is off, since this test shouldn't depend on confirmable.
+    @user.confirm! if @user.respond_to? :confirm!
     assert_equal mixed_case_email.downcase, @user.reload.email
   end
 
@@ -40,7 +42,8 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "email validation should accept valid email addresses" do
-    valid_addresses = %w[user@example.com USER@foo.COM A_US-ER@foo.bar.org first.last@foo.jp alice+bob@baz.cn alexandre.stuber@mercadofresh.com.br]
+    valid_addresses = %w[user@example.com USER@foo.COM A_US-ER@foo.bar.org
+                         first.last@foo.jp alice+bob@baz.cn alexandre.stuber@mercadofresh.com.br]
 
     valid_addresses.each do |valid_address|
       @user.email = valid_address
