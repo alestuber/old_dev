@@ -24,7 +24,7 @@ class Product < ActiveRecord::Base
   has_many :variants,
     -> { where(is_master: false).order("#{::Variant.quoted_table_name}.position ASC") },
     inverse_of: :product,
-     class_name: 'Variant'
+    class_name: 'Variant'
 
   has_many :variants_including_master,
     -> { order("#{::Variant.quoted_table_name}.position ASC") },
