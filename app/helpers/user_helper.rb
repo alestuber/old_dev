@@ -1,6 +1,6 @@
 module UserHelper
   def cpf_formatter(cpf)
-    "%s.%s.%s-%s" % [ cpf[0,3], cpf[3,3], cpf[6,3], cpf[9,2] ]
+    cpf.gsub!(/(\d{3})(\d{3})(\d{3})(\d{2})/,"\\1.\\2.\\3-\\4")
   end
 
   def date_formatter(date)
