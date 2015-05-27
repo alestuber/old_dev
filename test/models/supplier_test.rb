@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class SupplierTest < ActiveSupport::TestCase
-  test "should all suppliers be valid" do
+  test 'should all suppliers be valid' do
     Supplier.all.each do |p|
       assert p.valid?
     end
@@ -29,6 +29,6 @@ class SupplierTest < ActiveSupport::TestCase
   test 'products from a supplier' do
     supplier = suppliers(:supplier_mercado_natural)
     assert_equal [products(:product_choco_soy_break_mercado_natural)],
-                 supplier.products, "Mercado natural should only have one product: choco_soy"
+                 supplier.products, 'Mercado natural should only have one product: choco_soy'
   end
 end

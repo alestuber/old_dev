@@ -37,13 +37,13 @@ ActiveAdmin.register User do
       cpf_formatter user.cpf
     end
 
-    column "Confirmado?", :confirmed do |user|
+    column 'Confirmado?', :confirmed do |user|
       if user.confirmed_at.nil?
-        "Não"
+        'Não'
       elsif !user.unconfirmed_email.nil?
-        "Alteração pendente"
+        'Alteração pendente'
       else
-        "Sim"
+        'Sim'
       end
     end
     actions

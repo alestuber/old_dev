@@ -9,27 +9,27 @@ class VariantTest < ActiveSupport::TestCase
     @variant = nil
   end
 
-  test "should all variants be valid" do
+  test 'should all variants be valid' do
     Variant.all.each do |p|
       assert p.valid?
     end
   end
 
-  test "should validate price is greater than 0" do
+  test 'should validate price is greater than 0' do
     @variant.price = -1
     assert_not @variant.valid?
   end
 
-  test "should validate price is 0" do
+  test 'should validate price is 0' do
     @variant.price = 0
     assert @variant.valid?
   end
 
-  test "should have name and sku" do
-    assert_equal "Barra de Cereal Nutry Aveia, Banana e Mel - MFR-0001", @variant.name_and_sku
+  test 'should have name and sku' do
+    assert_equal 'Barra de Cereal Nutry Aveia, Banana e Mel - MFR-0001', @variant.name_and_sku
   end
 
-  test "if it is a master variant" do
+  test 'if it is a master variant' do
     assert @variant.is_master?
     assert_equal @variant, @variant.product.master
   end
