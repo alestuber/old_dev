@@ -5,6 +5,7 @@ AllCops:
     - '**/config.ru'
   Exclude:
     - db/schema.rb
+    - 'db/migrate/**/*'
     - bin/spring
     - bin/rake
     - bin/rails
@@ -24,3 +25,6 @@ Lint/UnusedBlockArgument:
 
 Lint/UselessAssignment:
   Enabled: true
+
+Metrics/AbcSize:
+  Max: 42
