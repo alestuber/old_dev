@@ -6,7 +6,15 @@ AllCops:
   Exclude:
     - db/schema.rb
     - bin/spring
+    - bin/rake
+    - bin/rails
     - 'vendor/bundle/**/*'
 
 Lint/AssignmentInCondition:
+  Enabled: true
+
+Lint/EndAlignment:
+  Enabled: true
+
+Lint/HandleExceptions:
   Enabled: true
