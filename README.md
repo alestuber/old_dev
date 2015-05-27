@@ -57,18 +57,28 @@ TODO: we must add the security verification to our continuous integration proces
 ### How to run the code analysys
 
 While we do not have a [Codeclimate](https://codeclimate.com) subscription, we
-are using [rubycritic](https://github.com/whitesmith/rubycritic):
+are using [rubycritic](https://github.com/whitesmith/rubycritic) and
+[rubocop](https://github.com/bbatsov/rubocop).
+
+To run rubycritic:
 
 ```
 bundle exec rubycritic app lib tests
 ```
 
-then visualize it:
+then visualize the generated report:
 
 ```
 open tmp/rubycritic/overview.html
 ```
 
+To run rubocop:
+
+```
+bundle exec rubocop -D
+```
+
+And you will see the blames on the terminal.
 
 ### Internationalization
 
