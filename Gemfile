@@ -25,6 +25,7 @@ gem 'devise-i18n', '0.12.0'
 gem 'omniauth-facebook', '2.0.1'
 gem 'activeadmin', '1.0.0.pre1'
 gem 'carrierwave', github:'carrierwaveuploader/carrierwave'
+gem 'awesome_nested_set', '3.0.2'
 
 group :development, :test do
   gem 'byebug', '4.0.5'

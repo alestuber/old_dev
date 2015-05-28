@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  lft: 1
+  rgt: 1
+  taxonomy_id: 
+  parent_id: 
+  name: MyString
+  description: MyText
+
+two:
+  name: MyString
+  lft: 1
+  rgt: 1
+  taxonomy_id: 
+  parent_id: 
+  name: MyString
+  description: MyText
