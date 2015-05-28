@@ -20,3 +20,4 @@ Gemfile.lock
 /tmp
 vendor/bundle/
 public/uploads
+coverage
