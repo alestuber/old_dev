@@ -25,6 +25,7 @@ gem 'devise-i18n', '0.12.0'
 gem 'omniauth-facebook', '2.0.1'
 gem 'activeadmin', '1.0.0.pre1'
 gem 'carrierwave', github:'carrierwaveuploader/carrierwave'
+gem 'acts_as_list', '0.7.2'
 gem 'awesome_nested_set', '3.0.2'
 
 group :development, :test do
@@ -53,6 +54,7 @@ group :test do
   gem 'minitest-reporters', '1.0.14'
   gem 'mini_backtrace', '0.1.3'
   gem 'guard-minitest', '2.3.1'
+  gem 'simplecov', '0.10.0', require: false
 end
 
 group :production do
