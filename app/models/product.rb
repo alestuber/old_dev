@@ -15,6 +15,7 @@ class Product < ActiveRecord::Base
   acts_as_paranoid
 
   belongs_to :supplier
+  has_and_belongs_to_many :option_types
 
   has_one :master,
           -> { where is_master: true },

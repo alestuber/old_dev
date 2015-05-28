@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150526190443) do
+ActiveRecord::Schema.define(version: 20150527182210) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,6 +48,35 @@ ActiveRecord::Schema.define(version: 20150526190443) do
 
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
+
+  create_table "option_types", force: :cascade do |t|
+    t.string   "name"
+    t.string   "presentation"
+    t.integer  "position",     default: 0, null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
+
+  add_index "option_types", ["position"], name: "index_option_types_on_position", using: :btree
+
+  create_table "option_types_products", id: false, force: :cascade do |t|
+    t.integer "product_id",     null: false
+    t.integer "option_type_id", null: false
+  end
+
+  add_index "option_types_products", ["option_type_id", "product_id"], name: "index_option_types_products_on_option_type_id_and_product_id", using: :btree
+  add_index "option_types_products", ["product_id", "option_type_id"], name: "index_option_types_products_on_product_id_and_option_type_id", using: :btree
+
+  create_table "option_values", force: :cascade do |t|
+    t.integer  "position"
+    t.string   "name"
+    t.string   "presentation"
+    t.integer  "option_type_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "option_values", ["option_type_id"], name: "index_option_values_on_option_type_id", using: :btree
 
   create_table "products", force: :cascade do |t|
     t.string   "name"
@@ -119,5 +148,6 @@ ActiveRecord::Schema.define(version: 20150526190443) do
 
   add_index "variants", ["deleted_at"], name: "index_variants_on_deleted_at", using: :btree
 
+  add_foreign_key "option_values", "option_types"
   add_foreign_key "products", "suppliers"
 end
