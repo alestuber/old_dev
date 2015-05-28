@@ -1,1 +1,14 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+ov_banana_1:
+  name: "Madura"
+  presentation: "A sua banana boa para consumo em no máximo 2 dias"
+  option_type: ot_banana_personalization
+
+ov_banana_2:
+  name: "Quase Madura"
+  presentation: "A sua banana boa para consumo entre 2 e 4 dias"
+  option_type: ot_banana_personalization
+
+ov_banana_3:
+  name: "Verde"
+  presentation: "A sua banana boa para consumo em mais de 4 dias. Utilizada para doces."
+  option_type: ot_banana_personalization
