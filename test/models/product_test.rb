@@ -33,7 +33,7 @@ class ProductTest < ActiveSupport::TestCase
                  apple_extra.variants_including_master
   end
 
-  test "HABTM option_types" do
+  test 'HABTM option_types' do
     banana = products(:product_banana_prata_pda)
     assert_equal option_types(:ot_banana_personalization, :ot_banana_personalization2), banana.option_types
   end

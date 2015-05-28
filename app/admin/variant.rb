@@ -32,9 +32,9 @@ ActiveAdmin.register Variant do
     column :images do |variant|
       images = variant.images
       result = []
-        images.each do |image|
-          result << image.to_s
-        end
+      images.each do |image|
+        result << image.to_s
+      end
       result
     end
     actions
