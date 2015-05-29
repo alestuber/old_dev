@@ -1,7 +1,11 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+taxonomy_categories:
+  name: Root Category
+  position: 1
 
-one:
-  name: MyString
+taxonomy_brands:
+  name: Root Brand
+  position: 2
 
-two:
-  name: MyString
+taxonomy_miscelaneous:
+  name: Miscelaneous
+  position: 3
