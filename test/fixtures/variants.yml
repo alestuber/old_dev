@@ -72,3 +72,4 @@ variant_banana_prata_pda_2kg:
   is_master: true
   cost_price: 2.27
   product: product_banana_prata_pda
+  option_values: ov_banana_1

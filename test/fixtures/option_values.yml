@@ -2,6 +2,7 @@ ov_banana_1:
   name: "Madura"
   presentation: "A sua banana boa para consumo em no máximo 2 dias"
   option_type: ot_banana_personalization
+  variants: variant_banana_prata_pda_2kg
 
 ov_banana_2:
   name: "Quase Madura"
