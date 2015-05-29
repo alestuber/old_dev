@@ -32,4 +32,8 @@ class OptionValueTest < ActiveSupport::TestCase
     assert_equal option_types(:ot_banana_personalization), @value2.option_type
     assert_equal option_types(:ot_banana_personalization), @value3.option_type
   end
+
+  test 'HABTM variants' do
+    assert_equal [variants(:variant_banana_prata_pda_2kg)], @value1.variants
+  end
 end
