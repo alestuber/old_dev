@@ -1,46 +1,70 @@
 pt-BR:
   activerecord:
+    attributes:
+      category:
+        name: Nome
+        description: Descrição
+      classification:
+        category_id: Categoria
+        product_id: Produto
+      product:
+        name: Nome
+        description: Descrição
+      supplier:
+        name: Nome
+      taxonomy:
+        name: Nome
+      user:
+        email: E-mail
+        password: Senha
+        password_confirmation: Confirmação de Senha
+        current_password: Senha Atual
+        first_name: Nome
+        last_name: Sobrenome
+        telephone: Telefone
+        date_of_birth: Data de Nascimento
+        cpf: CPF
+        id: ID
+      variant:
+        name: Nome
+        sku: SKU
+        ean: EAN
+        price: Preço
+        cost_price: Preço de custo
+        is_master: É mestre
+        position: Posição
+    errors:
       models:
-        admin_user:
-          one: Administrador
-          other: Administradores
-        product:
-          one: Produto
-          other: Produtos
-        supplier:
-          one: Fornecedor
-          other: Fornecedores
-        user:
-          one: Usuário
-          other: Usuários
-        variant:
-          one: Variação
-          other: Variações
-      attributes:
-        product:
-          name: Nome
-          description: Descrição
-        supplier:
-          name: Nome
-        user:
-          email: E-mail
-          password: Senha
-          password_confirmation: Confirmação de Senha
-          current_password: Senha Atual
-          first_name: Nome
-          last_name: Sobrenome
-          telephone: Telefone
-          date_of_birth: Data de Nascimento
-          cpf: CPF
-          id: ID
-        variant:
-          name: Nome
-          sku: SKU
-          ean: EAN
-          price: Preço
-          cost_price: Preço de custo
-          is_master: É mestre
-          position: Posição
+        classification:
+          attributes:
+            category_id:
+              already_linked: "já está ligada a este produto"
+    models:
+      admin_user:
+        one: Administrador
+        other: Administradores
+      category:
+        one: Categoria
+        other: Categorias
+      classification:
+        one: Classificação
+        other: Classificações
+      product:
+        one: Produto
+        other: Produtos
+      supplier:
+        one: Fornecedor
+        other: Fornecedores
+      taxonomy:
+        one: Taxonomia
+        other: Taxonomias
+      user:
+        one: Usuário
+        other: Usuários
+      variant:
+        one: Variação
+        other: Variações
+
   active_admin:
       dashboard: "Painel Administrativo"
       dashboard_welcome:

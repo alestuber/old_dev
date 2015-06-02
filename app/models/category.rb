@@ -2,6 +2,9 @@ class Category < ActiveRecord::Base
   belongs_to :taxonomy, class_name: 'Taxonomy', inverse_of: :categories
   has_many :products
 
+  has_many :classifications, -> { order(:position) }, dependent: :delete_all, inverse_of: :category
+  has_many :products, through: :classifications
+
   acts_as_nested_set dependent: :destroy
 
   after_save :touch_ancestors_and_taxonomy

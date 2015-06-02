@@ -32,4 +32,11 @@ class ProductTest < ActiveSupport::TestCase
     assert_equal variants(:variant_apple_gala_extra_master, :variant_apple_gala_extra),
                  apple_extra.variants_including_master
   end
+
+  test 'has many categories through classifications' do
+    product_copo_coca_cola = products(:product_copo_coca_cola)
+    cozinha = categories(:category_cozinha)
+    coca_cola = categories(:brand_coca_cola)
+    assert_equal [cozinha, coca_cola], product_copo_coca_cola.categories
+  end
 end
