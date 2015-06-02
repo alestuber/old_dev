@@ -72,6 +72,43 @@ ActiveRecord::Schema.define(version: 20150601232844) do
   add_index "categories_products", ["position"], name: "index_categories_products_on_position", using: :btree
   add_index "categories_products", ["product_id", "category_id"], name: "index_categories_products_on_product_id_and_category_id", using: :btree
 
+  create_table "option_types", force: :cascade do |t|
+    t.string   "name"
+    t.string   "presentation"
+    t.integer  "position",     default: 0, null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
+
+  add_index "option_types", ["position"], name: "index_option_types_on_position", using: :btree
+
+  create_table "option_types_products", id: false, force: :cascade do |t|
+    t.integer "product_id",     null: false
+    t.integer "option_type_id", null: false
+  end
+
+  add_index "option_types_products", ["option_type_id", "product_id"], name: "index_option_types_products_on_option_type_id_and_product_id", using: :btree
+  add_index "option_types_products", ["product_id", "option_type_id"], name: "index_option_types_products_on_product_id_and_option_type_id", using: :btree
+
+  create_table "option_values", force: :cascade do |t|
+    t.integer  "position"
+    t.string   "name"
+    t.string   "presentation"
+    t.integer  "option_type_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "option_values", ["option_type_id"], name: "index_option_values_on_option_type_id", using: :btree
+
+  create_table "option_values_variants", id: false, force: :cascade do |t|
+    t.integer "variant_id",      null: false
+    t.integer "option_value_id", null: false
+  end
+
+  add_index "option_values_variants", ["option_value_id", "variant_id"], name: "index_option_values_variants_on_option_value_id_and_variant_id", using: :btree
+  add_index "option_values_variants", ["variant_id", "option_value_id"], name: "index_option_values_variants_on_variant_id_and_option_value_id", using: :btree
+
   create_table "products", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
@@ -150,5 +187,6 @@ ActiveRecord::Schema.define(version: 20150601232844) do
   add_index "variants", ["deleted_at"], name: "index_variants_on_deleted_at", using: :btree
 
   add_foreign_key "categories", "taxonomies", on_delete: :cascade
+  add_foreign_key "option_values", "option_types"
   add_foreign_key "products", "suppliers"
 end

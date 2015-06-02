@@ -42,6 +42,7 @@ product_banana_prata_pda:
   name: "Banana prata"
   description: <%= FFaker::Lorem.paragraph(2) %>
   supplier: supplier_pda
+  option_types: ot_banana_personalization, ot_banana_personalization2
 
 product_copo_coca_cola:
   name: "COPO COCA COLA CRISTAL 473ML"

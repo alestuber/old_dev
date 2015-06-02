@@ -1,0 +1,9 @@
+ot_banana_personalization:
+  name: "Estágios da Banana"
+  presentation: "Escolha como você prefere sua banana"
+  products: product_banana_prata_pda
+
+ot_banana_personalization2:
+  name: "Estágios da Banana 2"
+  presentation: "Escolha 2"
+  products: product_banana_prata_pda

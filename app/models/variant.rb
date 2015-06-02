@@ -3,6 +3,8 @@ class Variant < ActiveRecord::Base
   acts_as_paranoid
 
   belongs_to :product, touch: true, class_name: 'Product', inverse_of: :variants
+  has_and_belongs_to_many :option_values
+
   delegate :name, :description, to: :product
 
   validates :price, numericality: { greater_than_or_equal_to: 0 }
