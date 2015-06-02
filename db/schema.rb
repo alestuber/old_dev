@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150529205456) do
+ActiveRecord::Schema.define(version: 20150601232844) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,6 +48,29 @@ ActiveRecord::Schema.define(version: 20150529205456) do
 
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
+
+  create_table "categories", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.integer  "taxonomy_id"
+    t.integer  "parent_id"
+    t.integer  "lft"
+    t.integer  "rgt"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "categories", ["taxonomy_id"], name: "index_categories_on_taxonomy_id", using: :btree
+
+  create_table "categories_products", id: false, force: :cascade do |t|
+    t.integer "product_id",  null: false
+    t.integer "category_id", null: false
+    t.integer "position"
+  end
+
+  add_index "categories_products", ["category_id", "product_id"], name: "index_categories_products_on_category_id_and_product_id", using: :btree
+  add_index "categories_products", ["position"], name: "index_categories_products_on_position", using: :btree
+  add_index "categories_products", ["product_id", "category_id"], name: "index_categories_products_on_product_id_and_category_id", using: :btree
 
   create_table "option_types", force: :cascade do |t|
     t.string   "name"
@@ -107,6 +130,13 @@ ActiveRecord::Schema.define(version: 20150529205456) do
 
   add_index "suppliers", ["deleted_at"], name: "index_suppliers_on_deleted_at", using: :btree
 
+  create_table "taxonomies", force: :cascade do |t|
+    t.string   "name",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "position"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -156,6 +186,7 @@ ActiveRecord::Schema.define(version: 20150529205456) do
 
   add_index "variants", ["deleted_at"], name: "index_variants_on_deleted_at", using: :btree
 
+  add_foreign_key "categories", "taxonomies", on_delete: :cascade
   add_foreign_key "option_values", "option_types"
   add_foreign_key "products", "suppliers"
 end

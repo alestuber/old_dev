@@ -37,4 +37,12 @@ class ProductTest < ActiveSupport::TestCase
     banana = products(:product_banana_prata_pda)
     assert_equal option_types(:ot_banana_personalization, :ot_banana_personalization2), banana.option_types
   end
+
+  test 'has many categories through classifications' do
+    product_copo_coca_cola = products(:product_copo_coca_cola)
+    cozinha = categories(:category_cozinha)
+    coca_cola = categories(:brand_coca_cola)
+    assert_equal [cozinha, coca_cola], product_copo_coca_cola.categories
+  end
+
 end

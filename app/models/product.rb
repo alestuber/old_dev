@@ -33,6 +33,9 @@ class Product < ActiveRecord::Base
            class_name: 'Variant',
            dependent:  :destroy
 
+  has_many :classifications, dependent: :delete_all, inverse_of: :product
+  has_many :categories, through: :classifications
+
   validates :name, presence: true
 
   # Master variant may be deleted (i.e. when the product is deleted)

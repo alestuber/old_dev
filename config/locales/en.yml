@@ -20,6 +20,13 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  activerecord:
+    errors:
+      models:
+        classification:
+          attributes:
+            category_id:
+              already_linked: "is already linked to this product"
   active_admin:
       dashboard: Dashboard
       dashboard_welcome:
