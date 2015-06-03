@@ -19,6 +19,7 @@ class ProductTest < ActiveSupport::TestCase
     assert @cereal_bar.valid?
 
     product = Product.new
+    product.master = variants(:variant_apple_gala_extra)
     assert_not product.valid?
   end
 
@@ -40,9 +41,14 @@ class ProductTest < ActiveSupport::TestCase
 
   test 'has many categories through classifications' do
     product_copo_coca_cola = products(:product_copo_coca_cola)
-    cozinha = categories(:category_cozinha)
-    coca_cola = categories(:brand_coca_cola)
-    assert_equal [cozinha, coca_cola], product_copo_coca_cola.categories
+    # cozinha = categories(:category_cozinha)
+    # coca_cola = categories(:brand_coca_cola)
+    # assert_equal [cozinha, coca_cola], product_copo_coca_cola.categories
+    assert_equal categories(:category_cozinha, :brand_coca_cola), product_copo_coca_cola.categories
   end
 
+  test 'should delegate sku to master variant' do
+    sku = @cereal_bar.master.sku
+    assert_equal sku, @cereal_bar.sku
+  end
 end
