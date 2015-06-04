@@ -45,6 +45,7 @@ class Product < ActiveRecord::Base
   validates :name, presence: true
   validates :meta_keywords, length: { maximum: 255 }
   validates :meta_title, length: { maximum: 255 }
+  validates :slug, length: { minimum: 3 }, allow_blank: true, uniqueness: true
 
   # Master variant may be deleted (i.e. when the product is deleted)
   # which would make AR's default finder return nil.

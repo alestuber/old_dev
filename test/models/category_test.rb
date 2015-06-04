@@ -5,6 +5,7 @@ class CategoryTest < ActiveSupport::TestCase
     @parent = Category.create name: 'New Root Category', taxonomy: taxonomies(:taxonomy_miscelaneous)
     @child = Category.create name: 'New Child', taxonomy: taxonomies(:taxonomy_miscelaneous)
     @child.parent = @parent
+    @child.set_permalink
   end
 
   test 'should all categories be valid' do
@@ -42,5 +43,17 @@ class CategoryTest < ActiveSupport::TestCase
     product_lata_coca_cola = products(:product_lata_coca_cola)
 
     assert_equal [product_copo_coca_cola, product_lata_coca_cola], coca_cola.products
+  end
+
+  # set_permalink
+  test 'should set permalink correctly when no parent present' do
+    super_brands = Category.create name: 'Super Brands', taxonomy: taxonomies(:taxonomy_miscelaneous)
+    super_brands.set_permalink
+    assert_equal 'super-brands', super_brands.permalink
+    assert_equal 'new-root-category', @parent.permalink
+  end
+
+  test 'should set permalink correctly taxon has parent' do
+    assert_equal 'new-root-category/new-child', @child.permalink
   end
 end

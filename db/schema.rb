@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150604190917) do
+ActiveRecord::Schema.define(version: 20150604224029) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,8 +56,12 @@ ActiveRecord::Schema.define(version: 20150604190917) do
     t.integer  "parent_id"
     t.integer  "lft"
     t.integer  "rgt"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.string   "permalink"
+    t.string   "meta_keywords"
+    t.string   "meta_description"
+    t.string   "meta_title"
   end
 
   add_index "categories", ["taxonomy_id"], name: "index_categories_on_taxonomy_id", using: :btree
