@@ -12,5 +12,7 @@ ActiveAdmin.register Product do
   #   permitted
   # end
 
+  remove_filter :classifications
+
   permit_params :name, :description, :supplier_id
 end
