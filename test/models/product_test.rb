@@ -41,9 +41,6 @@ class ProductTest < ActiveSupport::TestCase
 
   test 'has many categories through classifications' do
     product_copo_coca_cola = products(:product_copo_coca_cola)
-    # cozinha = categories(:category_cozinha)
-    # coca_cola = categories(:brand_coca_cola)
-    # assert_equal [cozinha, coca_cola], product_copo_coca_cola.categories
     assert_equal categories(:category_cozinha, :brand_coca_cola), product_copo_coca_cola.categories
   end
 
