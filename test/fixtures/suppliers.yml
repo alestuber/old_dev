@@ -1,13 +1,10 @@
 supplier_mercado_fresh:
-  id: 1
   name: 'Mercado Fresh'
 
 supplier_extra:
-  id: 2
   name: 'Extra'
 
 supplier_pda:
-  id: 3
   name: 'Pão de Açúcar'
 
 supplier_mercado_natural:

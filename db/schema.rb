@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150605182507) do
+ActiveRecord::Schema.define(version: 20150605202945) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -136,6 +136,7 @@ ActiveRecord::Schema.define(version: 20150605182507) do
     t.string   "slug"
     t.string   "meta_title"
     t.string   "meta_keywords"
+    t.datetime "available_on"
   end
 
   add_index "products", ["deleted_at"], name: "index_products_on_deleted_at", using: :btree
