@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150604224029) do
+ActiveRecord::Schema.define(version: 20150605182507) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -66,15 +66,15 @@ ActiveRecord::Schema.define(version: 20150604224029) do
 
   add_index "categories", ["taxonomy_id"], name: "index_categories_on_taxonomy_id", using: :btree
 
-  create_table "categories_products", force: :cascade do |t|
+  create_table "classifications", force: :cascade do |t|
     t.integer "product_id",  null: false
     t.integer "category_id", null: false
     t.integer "position"
   end
 
-  add_index "categories_products", ["category_id", "product_id"], name: "index_categories_products_on_category_id_and_product_id", using: :btree
-  add_index "categories_products", ["position"], name: "index_categories_products_on_position", using: :btree
-  add_index "categories_products", ["product_id", "category_id"], name: "index_categories_products_on_product_id_and_category_id", using: :btree
+  add_index "classifications", ["category_id", "product_id"], name: "index_classifications_on_category_id_and_product_id", using: :btree
+  add_index "classifications", ["position"], name: "index_classifications_on_position", using: :btree
+  add_index "classifications", ["product_id", "category_id"], name: "index_classifications_on_product_id_and_category_id", using: :btree
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",                      null: false
