@@ -14,7 +14,7 @@ product_cereal_bar_apple_extra:
   supplier: supplier_extra
 
 product_cereal_bar_apple_pda:
-  name: "Barra de Cereal Nutry Maçã 21g"
+  name: "Barra de Cereal Nutry Maçã 22g"
   description: <%= FFaker::Lorem.paragraph(2) %>
   supplier: supplier_pda
 

@@ -6,9 +6,33 @@ variant_cereal_bar_banana_master:
   cost_price: 0.99
   product: product_cereal_bar_banana
 
+variant_cereal_bar_apple:
+  sku: 'MFR-0007'
+  ean: 7891321010508
+  price: 1.99
+  is_master: true
+  cost_price: 0.99
+  product: product_cereal_bar_apple
+
+variant_cereal_bar_apple_extra:
+  sku: 'EXT-0007'
+  ean: 7891321010508
+  price: 1.99
+  is_master: true
+  cost_price: 0.99
+  product: product_cereal_bar_apple_extra
+
+variant_cereal_bar_apple_pda:
+  sku: 'PDA-0007'
+  ean: 7891321010508
+  price: 1.99
+  is_master: true
+  cost_price: 0.99
+  product: product_cereal_bar_apple_pda
+
 variant_cereal_bar_banana:
   sku: 'MFR-0002'
-  ean: 7891331010508
+  ean: 7891341010508
   price: 2.99
   is_master: false
   cost_price: 0.99
@@ -73,3 +97,24 @@ variant_banana_prata_pda_2kg:
   cost_price: 2.27
   product: product_banana_prata_pda
   option_values: ov_banana_1
+
+variant_choco_soy_break_mercado_natural:
+  sku: 'NAT-0104'
+  price: 5.22
+  is_master: true
+  cost_price: 3.89
+  product: product_choco_soy_break_mercado_natural
+
+variant_copo_coca_cola:
+  sku: 'PDA-0123'
+  price: 3.66
+  is_master: true
+  cost_price: 1.82
+  product: product_copo_coca_cola
+
+variant_lata_coca_cola:
+  sku: 'PDA-0124'
+  price: 2.00
+  is_master: true
+  cost_price: 0.52
+  product: product_lata_coca_cola
