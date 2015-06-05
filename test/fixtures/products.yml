@@ -48,10 +48,8 @@ product_copo_coca_cola:
   name: "COPO COCA COLA CRISTAL 473ML"
   description: <%= FFaker::Lorem.paragraph(2) %>
   supplier: supplier_pda
-  categories: brand_coca_cola, category_cozinha
 
 product_lata_coca_cola:
   name: "REFRIGERANTE COCA COLA LATA 350ML"
   description: <%= FFaker::Lorem.paragraph(2) %>
   supplier: supplier_pda
-  categories: brand_coca_cola, category_refrigerantes
