@@ -49,13 +49,13 @@ class ProductTest < ActiveSupport::TestCase
     assert_equal sku, @cereal_bar.sku
   end
 
-  #available?
-  test "should be available if date is in the past" do
+  # available?
+  test 'should be available if date is in the past' do
     @cereal_bar.available_on = 1.day.ago
     assert @cereal_bar.available?
   end
 
-  test "should not be available if date is nil or in the future" do
+  test 'should not be available if date is nil or in the future' do
     @cereal_bar.available_on = nil
     assert_not @cereal_bar.available?
 
@@ -63,7 +63,7 @@ class ProductTest < ActiveSupport::TestCase
     assert_not @cereal_bar.available?
   end
 
-  test "should not be available if destroyed" do
+  test 'should not be available if destroyed' do
     product_apple_gala_extra = products(:product_apple_gala_extra)
     product_apple_gala_extra.destroy
     assert_not product_apple_gala_extra.available?
