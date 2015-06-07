@@ -1,0 +1,63 @@
+price_1_99_1:
+  value: 1.99
+  priceable: variant_cereal_bar_banana_master (Variant)
+
+price_1_99_2:
+  value: 1.99
+  priceable: variant_cereal_bar_apple (Variant)
+
+price_1_99_3:
+  value: 1.99
+  priceable: variant_cereal_bar_apple_extra (Variant)
+
+price_1_99_4:
+  value: 1.99
+  priceable: variant_cereal_bar_apple_pda (Variant)
+
+price_2_99_1:
+  value: 2.99
+  priceable: variant_cereal_bar_banana (Variant)
+
+price_0_99_1:
+  value: 0.99
+  priceable: variant_apple_gala_extra_master (Variant)
+
+price_0_99_2:
+  value: 0.99
+  priceable: variant_apple_gala_extra (Variant)
+
+price_0_99_3:
+  value: 0.99
+  priceable: variant_apple_gala_mf_master (Variant)
+
+price_0_99_4:
+  value: 0.99
+  priceable: variant_apple_gala_mf (Variant)
+
+price_0_99_5:
+  value: 0.99
+  priceable: variant_tomato_carmem_mf_master (Variant)
+
+price_0_99_6:
+  value: 0.99
+  priceable: variant_tomato_carmem_mf_green (Variant)
+
+price_1_32_1:
+  value: 1.32
+  priceable: variant_tomato_carmem_mf_salad (Variant)
+
+price_9_96_1:
+  value: 9.96
+  priceable: variant_banana_prata_pda_2kg (Variant)
+
+price_5_22_1:
+  value: 5.22
+  priceable: variant_choco_soy_break_mercado_natural (Variant)
+
+price_3_66_1:
+  value: 3.66
+  priceable: variant_copo_coca_cola (Variant)
+
+price_2_01_1:
+  value: 2.01
+  priceable: variant_lata_coca_cola (Variant)

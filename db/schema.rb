@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150605202945) do
+ActiveRecord::Schema.define(version: 20150606140100) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -126,6 +126,16 @@ ActiveRecord::Schema.define(version: 20150605202945) do
   add_index "option_values_variants", ["option_value_id", "variant_id"], name: "index_option_values_variants_on_option_value_id_and_variant_id", using: :btree
   add_index "option_values_variants", ["variant_id", "option_value_id"], name: "index_option_values_variants_on_variant_id_and_option_value_id", using: :btree
 
+  create_table "prices", force: :cascade do |t|
+    t.decimal  "value"
+    t.integer  "priceable_id"
+    t.string   "priceable_type"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "prices", ["priceable_type", "priceable_id"], name: "index_prices_on_priceable_type_and_priceable_id", using: :btree
+
   create_table "products", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
@@ -194,7 +204,6 @@ ActiveRecord::Schema.define(version: 20150605202945) do
   create_table "variants", force: :cascade do |t|
     t.string   "sku",                                default: "",    null: false
     t.float    "ean"
-    t.decimal  "price",      precision: 8, scale: 2
     t.decimal  "cost_price", precision: 8, scale: 2
     t.boolean  "is_master",                          default: false
     t.integer  "position"
@@ -206,6 +215,17 @@ ActiveRecord::Schema.define(version: 20150605202945) do
   end
 
   add_index "variants", ["deleted_at"], name: "index_variants_on_deleted_at", using: :btree
+
+  create_table "versions", force: :cascade do |t|
+    t.string   "item_type",  null: false
+    t.integer  "item_id",    null: false
+    t.string   "event",      null: false
+    t.string   "whodunnit"
+    t.text     "object"
+    t.datetime "created_at"
+  end
+
+  add_index "versions", ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id", using: :btree
 
   add_foreign_key "categories", "taxonomies", on_delete: :cascade
   add_foreign_key "option_values", "option_types"

@@ -16,16 +16,6 @@ class VariantTest < ActiveSupport::TestCase
     end
   end
 
-  test 'should validate price is greater than 0' do
-    @variant.price = -1
-    assert_not @variant.valid?
-  end
-
-  test 'should validate price is 0' do
-    @variant.price = 0
-    assert @variant.valid?
-  end
-
   test 'should have name and sku' do
     assert_equal 'Barra de Cereal Nutry Aveia, Banana e Mel - MFR-0001', @variant.name_and_sku
   end
