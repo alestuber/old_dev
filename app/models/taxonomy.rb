@@ -1,8 +1,9 @@
 class Taxonomy < ActiveRecord::Base
   acts_as_list
+
   validates :name, presence: true
 
-  has_many :categories
+  has_many :categories, inverse_of: :taxonomy
   has_one :root, -> { where parent_id: nil }, class_name: 'Category', dependent: :destroy
 
   after_create :set_root
