@@ -89,6 +89,16 @@ if you need to override any translation to Brazilian Portuguese.
 
 Documentation on: https://github.com/activeadmin/activeadmin/tree/master/docs#activeadmin-documentation
 
+### Missing foreign keys
+
+We are using [immigrant](https://github.com/jenseng/immigrant) to help us finding missing foreign keys.
+
+To run it (should be also installed in CI):
+
+```
+rake immigrant:check_keys
+```
+
 ### To Be Documented
 
 * Services (job queues, cache servers, search engines, etc.)
