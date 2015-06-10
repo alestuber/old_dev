@@ -1,66 +1,55 @@
 product_cereal_bar_banana:
   name: "Barra de Cereal Nutry Aveia, Banana e Mel"
   description: <%= FFaker::Lorem.paragraph(2) %>
-  supplier: supplier_mercado_fresh
   available_on: <%= 1.day.ago %>
 
 product_cereal_bar_apple:
   name: "Barra de Cereal Nutry Maçã"
   description: <%= FFaker::Lorem.paragraph(2) %>
-  supplier: supplier_mercado_fresh
   available_on: <%= 1.day.ago %>
 
 product_cereal_bar_apple_extra:
   name: "Barra de Cereal Nutry Maçã 21g"
   description: <%= FFaker::Lorem.paragraph(2) %>
-  supplier: supplier_extra
   available_on: <%= 1.day.ago %>
 
 product_cereal_bar_apple_pda:
   name: "Barra de Cereal Nutry Maçã 22g"
   description: <%= FFaker::Lorem.paragraph(2) %>
-  supplier: supplier_pda
   available_on: <%= 1.day.ago %>
 
 product_choco_soy_break_mercado_natural:
   name: "Choco Soy Break"
   description: "Barra de chocolate sem lactose"
-  supplier: supplier_mercado_natural
   available_on: <%= 1.day.ago %>
 
 product_apple_gala_extra:
   name: "Maçã Gala Pequena"
   description: <%= FFaker::Lorem.paragraph(2) %>
-  supplier: supplier_extra
   available_on: <%= 1.day.ago %>
 
 product_apple_gala_mf:
   name: "Maçã Gala"
   description: <%= FFaker::Lorem.paragraph(2) %>
-  supplier: supplier_mercado_fresh
   available_on: <%= 1.day.ago %>
 
 product_tomato_carmem_mf:
   name: "Tomate Carmem"
   description: <%= FFaker::Lorem.paragraph(2) %>
-  supplier: supplier_mercado_fresh
   available_on: <%= 1.day.ago %>
 
 product_banana_prata_pda:
   name: "Banana prata"
   description: <%= FFaker::Lorem.paragraph(2) %>
-  supplier: supplier_pda
   option_types: ot_banana_personalization, ot_banana_personalization2
   available_on: <%= 1.day.ago %>
 
 product_copo_coca_cola:
   name: "COPO COCA COLA CRISTAL 473ML"
   description: <%= FFaker::Lorem.paragraph(2) %>
-  supplier: supplier_pda
   available_on: <%= 1.day.ago %>
 
 product_lata_coca_cola:
   name: "REFRIGERANTE COCA COLA LATA 350ML"
   description: <%= FFaker::Lorem.paragraph(2) %>
-  supplier: supplier_pda
   available_on: <%= 1.day.ago %>
