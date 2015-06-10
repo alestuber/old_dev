@@ -14,5 +14,5 @@ ActiveAdmin.register Product do
 
   remove_filter :classifications, :master, :variants, :variants_including_master
 
-  permit_params :name, :description, :supplier_id
+  permit_params :name, :description
 end

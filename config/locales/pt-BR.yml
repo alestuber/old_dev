@@ -10,8 +10,6 @@ pt-BR:
       product:
         name: Nome
         description: Descrição
-      supplier:
-        name: Nome
       taxonomy:
         name: Nome
       user:
@@ -52,9 +50,6 @@ pt-BR:
       product:
         one: Produto
         other: Produtos
-      supplier:
-        one: Fornecedor
-        other: Fornecedores
       taxonomy:
         one: Taxonomia
         other: Taxonomias

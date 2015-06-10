@@ -140,7 +140,6 @@ ActiveRecord::Schema.define(version: 20150608225626) do
     t.string   "name"
     t.text     "description"
     t.datetime "deleted_at"
-    t.integer  "supplier_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.string   "slug"
@@ -150,16 +149,6 @@ ActiveRecord::Schema.define(version: 20150608225626) do
   end
 
   add_index "products", ["deleted_at"], name: "index_products_on_deleted_at", using: :btree
-  add_index "products", ["supplier_id"], name: "index_products_on_supplier_id", using: :btree
-
-  create_table "suppliers", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "deleted_at"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "suppliers", ["deleted_at"], name: "index_suppliers_on_deleted_at", using: :btree
 
   create_table "taxonomies", force: :cascade do |t|
     t.string   "name",       null: false
@@ -236,6 +225,5 @@ ActiveRecord::Schema.define(version: 20150608225626) do
   add_foreign_key "option_values", "option_types"
   add_foreign_key "option_values_variants", "option_values"
   add_foreign_key "option_values_variants", "variants"
-  add_foreign_key "products", "suppliers"
   add_foreign_key "variants", "products"
 end
