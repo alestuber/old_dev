@@ -74,7 +74,6 @@ group :development, :test do
   gem 'web-console', '2.1.2'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring', '1.3.6'
-  gem 'guard', '2.12.5'
   gem 'guard-rubycritic', '1.4.0'
   gem 'bullet', '4.14.7'
   # Hides env variables from repository
