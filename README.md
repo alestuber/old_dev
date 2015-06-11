@@ -18,29 +18,21 @@ Run bundle and be happy :-)
 ### Database creation
 
 ```
-rake db:create db:migrate
+bundle exec rake db:create db:migrate
 ```
 
 ### Database initialization
 
 ```
-rake db:seed
+bundle exec rake db:seed
 ```
 
 ### How to run the test suite
 
 
 ```
-rake tests
+bundle exec rake test
 ```
-
-You also can have [guard](https://github.com/guard/guard/) installed and run
-
-```
-guard
-```
-
-to watch the tests being run as you change the files
 
 ### How to run the security scanner
 
@@ -87,7 +79,7 @@ if you need to override any translation to Brazilian Portuguese.
 
 ### Active Admin
 
-Documentation on: https://github.com/activeadmin/activeadmin/tree/master/docs#activeadmin-documentation
+Documentation at: https://github.com/activeadmin/activeadmin/tree/master/docs#activeadmin-documentation
 
 ### Missing foreign keys
 
