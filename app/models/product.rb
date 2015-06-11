@@ -16,8 +16,6 @@ class Product < ActiveRecord::Base
   extend FriendlyId
   friendly_id :slug_candidates, use: :history
 
-  acts_as_paranoid
-
   has_and_belongs_to_many :option_types
 
   has_one :master,
@@ -46,25 +44,10 @@ class Product < ActiveRecord::Base
   validates :meta_title, length: { maximum: 255 }
   validates :slug, length: { minimum: 3 }, allow_blank: true, uniqueness: true
 
-  # use deleted? rather than checking the attribute directly. this
-  # allows extensions to override deleted? if they want to provide
-  # their own definition.
-  def deleted?
-    !!deleted_at
-  end
-
-  # determine if product is available.
-  # deleted products and products with nil or future available_on date
-  # are not available
+  # Determine if a product is available.
+  # Products with nil or future available_on date are not available
   def available?
-    !(available_on.nil? || available_on.future?) && !deleted?
-  end
-
-  # Master variant may be deleted (i.e. when the product is deleted)
-  # which would make AR's default finder return nil.
-  # This is a stopgap for that little problem.
-  def master
-    super || variants_including_master.with_deleted.where(is_master: true).first
+    !(available_on.nil? || available_on.future?)
   end
 
   private

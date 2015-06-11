@@ -139,7 +139,6 @@ ActiveRecord::Schema.define(version: 20150608225626) do
   create_table "products", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
-    t.datetime "deleted_at"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.string   "slug"
@@ -147,8 +146,6 @@ ActiveRecord::Schema.define(version: 20150608225626) do
     t.string   "meta_keywords"
     t.datetime "available_on"
   end
-
-  add_index "products", ["deleted_at"], name: "index_products_on_deleted_at", using: :btree
 
   create_table "taxonomies", force: :cascade do |t|
     t.string   "name",       null: false
@@ -197,13 +194,10 @@ ActiveRecord::Schema.define(version: 20150608225626) do
     t.boolean  "is_master",                          default: false
     t.integer  "position"
     t.integer  "product_id"
-    t.datetime "deleted_at"
     t.datetime "created_at",                                         null: false
     t.datetime "updated_at",                                         null: false
     t.text     "images",                                                          array: true
   end
-
-  add_index "variants", ["deleted_at"], name: "index_variants_on_deleted_at", using: :btree
 
   create_table "versions", force: :cascade do |t|
     t.string   "item_type",  null: false

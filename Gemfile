@@ -44,8 +44,6 @@ gem 'devise', '3.4.1'
 gem 'mandrill-api', '1.0.53'
 # Simple static pages
 gem 'high_voltage', '2.3.0'
-# Soft delete
-gem 'paranoia', '2.1.2'
 
 gem 'sprockets', '3.1.0'
 gem 'sprockets-rails', '2.3.1'
@@ -99,8 +97,6 @@ group :test do
   gem 'minitest-reporters', '1.0.14'
   # Better backtraces for mini test results on terminal
   gem 'mini_backtrace', '0.1.3'
-  # Automatic test utility
-  gem 'simplecov', '0.10.0', require: false
 end
 
 group :production do

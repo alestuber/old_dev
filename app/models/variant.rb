@@ -1,6 +1,5 @@
 class Variant < ActiveRecord::Base
   mount_uploaders :images, ImageUploader
-  acts_as_paranoid
 
   has_one :price, as: :priceable
 

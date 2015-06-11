@@ -3,11 +3,9 @@ class CreateProductInfrastructure < ActiveRecord::Migration
     create_table :products do |t|
       t.string :name
       t.text :description
-      t.datetime :deleted_at
 
       t.timestamps null: false
     end
-    add_index :products, :deleted_at
 
     create_table :variants do |t|
       t.string     :name
@@ -18,9 +16,8 @@ class CreateProductInfrastructure < ActiveRecord::Migration
       t.boolean    :is_master,                                :default => false
       t.integer    :position
       t.references :product
-      t.datetime   :deleted_at
+
       t.timestamps null: false
     end
-    add_index :variants, :deleted_at
   end
 end

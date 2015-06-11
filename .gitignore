@@ -20,6 +20,5 @@ Gemfile.lock
 /tmp
 vendor/bundle/
 public/uploads
-coverage
 rails_best_practices_output.html
 doc/
