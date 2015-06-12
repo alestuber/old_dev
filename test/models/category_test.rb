@@ -4,8 +4,10 @@ class CategoryTest < ActiveSupport::TestCase
   def setup
     @parent = Category.create name: 'New Root Category'
     @child = Category.create name: 'New Child'
-    @child.parent = @parent
+    @child.move_to_child_of @parent
+    @child.reload
     @child.set_permalink
+    @child.save
   end
 
   test 'should all categories be valid' do
@@ -15,12 +17,11 @@ class CategoryTest < ActiveSupport::TestCase
   end
 
   test 'should a new category have children' do
-    assert @parent.valid?
-    assert @child.valid?
     assert_equal @parent, @child.parent
 
     grandson = Category.create name: 'New Grandson'
-    grandson.parent = @child
+    grandson.move_to_child_of @child
+    grandson.reload
 
     assert_equal @child, grandson.parent
 
@@ -34,15 +35,6 @@ class CategoryTest < ActiveSupport::TestCase
     assert_raises (ActiveRecord::RecordNotFound) do
       Category.find grandson.id
     end
-  end
-
-  # products.yml
-  test 'has many products through classifications' do
-    coca_cola = categories(:brand_coca_cola)
-    product_copo_coca_cola = products(:product_copo_coca_cola)
-    product_lata_coca_cola = products(:product_lata_coca_cola)
-
-    assert_equal [product_copo_coca_cola, product_lata_coca_cola], coca_cola.products
   end
 
   # set_permalink
