@@ -34,32 +34,6 @@ bundle exec rake db:seed
 bundle exec rake test
 ```
 
-### How to run the code analysys
-
-While we do not have a [Codeclimate](https://codeclimate.com) subscription, we
-are using [rubycritic](https://github.com/whitesmith/rubycritic) and
-[rubocop](https://github.com/bbatsov/rubocop).
-
-To run rubycritic:
-
-```
-bundle exec rubycritic app lib tests
-```
-
-then visualize the generated report:
-
-```
-open tmp/rubycritic/overview.html
-```
-
-To run rubocop:
-
-```
-bundle exec rubocop -D
-```
-
-And you will see the blames on the terminal.
-
 ### Internationalization
 
 Refer to [rails-i18n pt-BR file](https://github.com/svenfuchs/rails-i18n/blob/master/rails/locale/pt-BR.yml)

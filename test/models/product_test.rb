@@ -30,8 +30,7 @@ class ProductTest < ActiveSupport::TestCase
   test 'has many variants' do
     apple_extra = products(:product_apple_gala_extra)
     assert_equal [variants(:variant_apple_gala_extra)], apple_extra.variants
-    assert_equal variants(:variant_apple_gala_extra_master, :variant_apple_gala_extra),
-                 apple_extra.variants_including_master
+    assert_equal variants(:variant_apple_gala_extra_master, :variant_apple_gala_extra), apple_extra.variants_including_master
   end
 
   test 'HABTM option_types' do

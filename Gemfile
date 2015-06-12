@@ -71,7 +71,6 @@ group :development, :test do
   gem 'web-console', '2.1.2'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring', '1.3.6'
-  gem 'guard-rubycritic', '1.4.0'
   gem 'bullet', '4.14.7'
   # Hides env variables from repository
   gem 'dotenv-rails', '2.0.1'
@@ -83,10 +82,6 @@ group :development do
   # Open as a new tab the sent emails
   gem 'letter_opener', '1.4.0'
 
-  # Do not load these helper gems on the application
-  # Always use the lastest version
-  gem 'rubycritic', require: false
-  gem 'rubocop',    require: false
   gem 'immigrant', '0.3.4'
 end
 
