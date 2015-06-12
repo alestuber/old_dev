@@ -34,8 +34,6 @@ class Product < ActiveRecord::Base
            class_name: 'Variant',
            dependent:  :destroy
 
-  delegate :sku, to: :master
-
   has_many :classifications, dependent: :delete_all, inverse_of: :product
   has_many :categories, through: :classifications
 
@@ -55,8 +53,7 @@ class Product < ActiveRecord::Base
   # Try building a slug based on the following fields in increasing order of specificity.
   def slug_candidates
     [
-      :name,
-      [:name, :sku]
+      :name
     ]
   end
 end

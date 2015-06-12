@@ -8,7 +8,6 @@ class CreateProductInfrastructure < ActiveRecord::Migration
     end
 
     create_table :variants do |t|
-      t.string     :name
       t.string     :sku,                      :default => '',    :null => false
       t.float      :ean
       t.decimal    :price,                         :precision => 8, :scale => 2

@@ -44,11 +44,6 @@ class ProductTest < ActiveSupport::TestCase
     assert_equal categories(:category_cozinha, :brand_coca_cola), product_copo_coca_cola.categories
   end
 
-  test 'should delegate sku to master variant' do
-    sku = @cereal_bar.master.sku
-    assert_equal sku, @cereal_bar.sku
-  end
-
   # available?
   test 'should be available if date is in the past' do
     @cereal_bar.available_on = 1.day.ago
