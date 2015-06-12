@@ -3,9 +3,6 @@ class Category < ActiveRecord::Base
   friendly_id :permalink, slug_column: :permalink, use: :slugged
   before_create :set_permalink
 
-  has_many :classifications, -> { order(:position) }, dependent: :delete_all, inverse_of: :category
-  has_many :products, through: :classifications
-
   acts_as_nested_set dependent: :destroy
 
   validates :name, presence: true

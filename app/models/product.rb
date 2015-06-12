@@ -34,9 +34,6 @@ class Product < ActiveRecord::Base
            class_name: 'Variant',
            dependent:  :destroy
 
-  has_many :classifications, dependent: :delete_all, inverse_of: :product
-  has_many :categories, through: :classifications
-
   validates :name, presence: true
   validates :meta_keywords, length: { maximum: 255 }
   validates :meta_title, length: { maximum: 255 }

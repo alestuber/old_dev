@@ -4,9 +4,6 @@ pt-BR:
       category:
         name: Nome
         description: Descrição
-      classification:
-        category_id: Categoria
-        product_id: Produto
       product:
         name: Nome
         description: Descrição
@@ -29,12 +26,6 @@ pt-BR:
         cost_price: Preço de custo
         is_master: É mestre
         position: Posição
-    errors:
-      models:
-        classification:
-          attributes:
-            category_id:
-              already_linked: "já está ligada a este produto"
     models:
       admin_user:
         one: Administrador
@@ -42,9 +33,6 @@ pt-BR:
       category:
         one: Categoria
         other: Categorias
-      classification:
-        one: Classificação
-        other: Classificações
       product:
         one: Produto
         other: Produtos

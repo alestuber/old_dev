@@ -63,16 +63,6 @@ ActiveRecord::Schema.define(version: 20150608225626) do
     t.string   "meta_title"
   end
 
-  create_table "classifications", force: :cascade do |t|
-    t.integer "product_id",  null: false
-    t.integer "category_id", null: false
-    t.integer "position"
-  end
-
-  add_index "classifications", ["category_id", "product_id"], name: "index_classifications_on_category_id_and_product_id", using: :btree
-  add_index "classifications", ["position"], name: "index_classifications_on_position", using: :btree
-  add_index "classifications", ["product_id", "category_id"], name: "index_classifications_on_product_id_and_category_id", using: :btree
-
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",                      null: false
     t.integer  "sluggable_id",              null: false
@@ -201,8 +191,6 @@ ActiveRecord::Schema.define(version: 20150608225626) do
   add_index "versions", ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id", using: :btree
 
   add_foreign_key "categories", "categories", column: "parent_id", name: "categories_parent_id_fk", on_delete: :cascade
-  add_foreign_key "classifications", "categories", on_delete: :cascade
-  add_foreign_key "classifications", "products", on_delete: :cascade
   add_foreign_key "option_types_products", "option_types"
   add_foreign_key "option_types_products", "products"
   add_foreign_key "option_values", "option_types"

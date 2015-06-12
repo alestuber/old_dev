@@ -12,7 +12,7 @@ ActiveAdmin.register Product do
   #   permitted
   # end
 
-  remove_filter :classifications, :master, :variants, :variants_including_master
+  remove_filter :master, :variants, :variants_including_master
 
   permit_params :name, :description
 end
