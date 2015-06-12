@@ -10,8 +10,6 @@ pt-BR:
       product:
         name: Nome
         description: Descrição
-      taxonomy:
-        name: Nome
       user:
         email: E-mail
         password: Senha
@@ -50,9 +48,6 @@ pt-BR:
       product:
         one: Produto
         other: Produtos
-      taxonomy:
-        one: Taxonomia
-        other: Taxonomias
       user:
         one: Usuário
         other: Usuários

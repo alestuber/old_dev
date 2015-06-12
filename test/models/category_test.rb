@@ -2,8 +2,8 @@ require 'test_helper'
 
 class CategoryTest < ActiveSupport::TestCase
   def setup
-    @parent = Category.create name: 'New Root Category', taxonomy: taxonomies(:taxonomy_miscelaneous)
-    @child = Category.create name: 'New Child', taxonomy: taxonomies(:taxonomy_miscelaneous)
+    @parent = Category.create name: 'New Root Category'
+    @child = Category.create name: 'New Child'
     @child.parent = @parent
     @child.set_permalink
   end
@@ -19,7 +19,7 @@ class CategoryTest < ActiveSupport::TestCase
     assert @child.valid?
     assert_equal @parent, @child.parent
 
-    grandson = Category.create name: 'New Grandson', taxonomy: taxonomies(:taxonomy_miscelaneous)
+    grandson = Category.create name: 'New Grandson'
     grandson.parent = @child
 
     assert_equal @child, grandson.parent
@@ -47,13 +47,9 @@ class CategoryTest < ActiveSupport::TestCase
 
   # set_permalink
   test 'should set permalink correctly when no parent present' do
-    super_brands = Category.create name: 'Super Brands', taxonomy: taxonomies(:taxonomy_miscelaneous)
+    super_brands = Category.create name: 'Super Brands'
     super_brands.set_permalink
     assert_equal 'super-brands', super_brands.permalink
     assert_equal 'new-root-category', @parent.permalink
-  end
-
-  test 'should set permalink correctly taxon has parent' do
-    assert_equal 'new-root-category/new-child', @child.permalink
   end
 end

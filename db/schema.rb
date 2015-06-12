@@ -52,7 +52,6 @@ ActiveRecord::Schema.define(version: 20150608225626) do
   create_table "categories", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
-    t.integer  "taxonomy_id"
     t.integer  "parent_id"
     t.integer  "lft"
     t.integer  "rgt"
@@ -63,8 +62,6 @@ ActiveRecord::Schema.define(version: 20150608225626) do
     t.string   "meta_description"
     t.string   "meta_title"
   end
-
-  add_index "categories", ["taxonomy_id"], name: "index_categories_on_taxonomy_id", using: :btree
 
   create_table "classifications", force: :cascade do |t|
     t.integer "product_id",  null: false
@@ -147,13 +144,6 @@ ActiveRecord::Schema.define(version: 20150608225626) do
     t.datetime "available_on"
   end
 
-  create_table "taxonomies", force: :cascade do |t|
-    t.string   "name",       null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer  "position"
-  end
-
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -211,7 +201,6 @@ ActiveRecord::Schema.define(version: 20150608225626) do
   add_index "versions", ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id", using: :btree
 
   add_foreign_key "categories", "categories", column: "parent_id", name: "categories_parent_id_fk", on_delete: :cascade
-  add_foreign_key "categories", "taxonomies", on_delete: :cascade
   add_foreign_key "classifications", "categories", on_delete: :cascade
   add_foreign_key "classifications", "products", on_delete: :cascade
   add_foreign_key "option_types_products", "option_types"
