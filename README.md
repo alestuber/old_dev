@@ -34,18 +34,6 @@ bundle exec rake db:seed
 bundle exec rake test
 ```
 
-### How to run the security scanner
-
-
-We are using [brakeman scanner](http://brakemanscanner.org/) to keep an eye on
-the security issues. To run:
-
-```
-rake brakeman:run
-```
-
-TODO: we must add the security verification to our continuous integration process.
-
 ### How to run the code analysys
 
 While we do not have a [Codeclimate](https://codeclimate.com) subscription, we

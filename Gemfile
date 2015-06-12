@@ -27,7 +27,6 @@ gem 'jbuilder', '2.2.13'
 gem 'sdoc', '0.4.1', group: :doc
 # Slim syntatic sugar rails + HTML
 gem 'slim-rails', '3.0.1'
-gem 'slim', '3.0.3' # Same version of slim-rails. It's here due to brakeman
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -87,7 +86,6 @@ group :development do
   # Do not load these helper gems on the application
   # Always use the lastest version
   gem 'rubycritic', require: false
-  gem 'brakeman',   require: false
   gem 'rubocop',    require: false
   gem 'immigrant', '0.3.4'
 end
