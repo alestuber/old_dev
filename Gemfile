@@ -77,8 +77,6 @@ end
 group :development do
   # Open as a new tab the sent emails
   gem 'letter_opener', '1.4.0'
-
-  gem 'immigrant', '0.3.4'
 end
 
 group :test do
