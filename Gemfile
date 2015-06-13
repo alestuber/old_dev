@@ -59,8 +59,6 @@ gem 'carrierwave', github:'carrierwaveuploader/carrierwave'
 gem 'acts_as_list', '0.7.2'
 # Tree structure as a nested set for models
 gem 'awesome_nested_set', '3.0.2'
-# Custom and beautiful uris
-gem 'friendly_id', '5.1.0'
 # Saves versions
 gem 'paper_trail', '4.0.0.rc1'
 

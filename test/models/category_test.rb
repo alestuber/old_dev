@@ -6,8 +6,6 @@ class CategoryTest < ActiveSupport::TestCase
     @child = Category.create name: 'New Child'
     @child.move_to_child_of @parent
     @child.reload
-    @child.set_permalink
-    @child.save
   end
 
   test 'should all categories be valid' do
@@ -35,13 +33,5 @@ class CategoryTest < ActiveSupport::TestCase
     assert_raises (ActiveRecord::RecordNotFound) do
       Category.find grandson.id
     end
-  end
-
-  # set_permalink
-  test 'should set permalink correctly when no parent present' do
-    super_brands = Category.create name: 'Super Brands'
-    super_brands.set_permalink
-    assert_equal 'super-brands', super_brands.permalink
-    assert_equal 'new-root-category', @parent.permalink
   end
 end

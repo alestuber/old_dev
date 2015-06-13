@@ -1,7 +1,6 @@
 # PRODUCTS
 # Products represent an entity for sale.
 # Products can have variations, called variants
-# Products properties include description, permalink, availability, etc. that do not change by variant.
 #
 # MASTER VARIANT
 # Every product has one master variant, which stores master price and sku, size and weight, etc.
@@ -13,8 +12,6 @@
 # All other variants have option values.
 
 class Product < ActiveRecord::Base
-  extend FriendlyId
-  friendly_id :slug_candidates, use: :history
 
   has_and_belongs_to_many :option_types
 
@@ -35,9 +32,6 @@ class Product < ActiveRecord::Base
            dependent:  :destroy
 
   validates :name, presence: true
-  validates :meta_keywords, length: { maximum: 255 }
-  validates :meta_title, length: { maximum: 255 }
-  validates :slug, length: { minimum: 3 }, allow_blank: true, uniqueness: true
 
   # Determine if a product is available.
   # Products with nil or future available_on date are not available
@@ -45,12 +39,4 @@ class Product < ActiveRecord::Base
     !(available_on.nil? || available_on.future?)
   end
 
-  private
-
-  # Try building a slug based on the following fields in increasing order of specificity.
-  def slug_candidates
-    [
-      :name
-    ]
-  end
 end
