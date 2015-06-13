@@ -37,18 +37,4 @@ class ProductTest < ActiveSupport::TestCase
     banana = products(:product_banana_prata_pda)
     assert_equal option_types(:ot_banana_personalization, :ot_banana_personalization2), banana.option_types
   end
-
-  # available?
-  test 'should be available if date is in the past' do
-    @cereal_bar.available_on = 1.day.ago
-    assert @cereal_bar.available?
-  end
-
-  test 'should not be available if date is nil or in the future' do
-    @cereal_bar.available_on = nil
-    assert_not @cereal_bar.available?
-
-    @cereal_bar.available_on = 1.day.from_now
-    assert_not @cereal_bar.available?
-  end
 end

@@ -33,10 +33,4 @@ class Product < ActiveRecord::Base
 
   validates :name, presence: true
 
-  # Determine if a product is available.
-  # Products with nil or future available_on date are not available
-  def available?
-    !(available_on.nil? || available_on.future?)
-  end
-
 end
