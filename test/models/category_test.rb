@@ -14,6 +14,16 @@ class CategoryTest < ActiveSupport::TestCase
     end
   end
 
+  test 'should have a product if its a leaf node' do
+    assert @child.leaf?
+    assert_not @child.root.leaf?
+    assert_equal [], @child.products
+    new_product = products(:product_cereal_bar_banana)
+    new_product.category = @child
+    new_product.save
+    assert_equal [new_product], @child.reload.products
+  end
+
   test 'should a new category have children' do
     assert_equal @parent, @child.parent
 
