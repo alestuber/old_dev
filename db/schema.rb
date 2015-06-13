@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150608182600) do
+ActiveRecord::Schema.define(version: 20150529205456) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -148,11 +148,5 @@ ActiveRecord::Schema.define(version: 20150608182600) do
     t.text     "images",                                                          array: true
   end
 
-  add_foreign_key "categories", "categories", column: "parent_id", name: "categories_parent_id_fk", on_delete: :cascade
-  add_foreign_key "option_types_products", "option_types"
-  add_foreign_key "option_types_products", "products"
   add_foreign_key "option_values", "option_types"
-  add_foreign_key "option_values_variants", "option_values"
-  add_foreign_key "option_values_variants", "variants"
-  add_foreign_key "variants", "products"
 end
