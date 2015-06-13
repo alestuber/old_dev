@@ -1,9 +1,7 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :lockable, :timeoutable
-  devise :database_authenticatable, :registerable, :recoverable, :rememberable,
-         :trackable, :validatable, :confirmable, :omniauthable,
-         omniauth_providers: [:facebook]
+  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable, :confirmable, :omniauthable, omniauth_providers: [:facebook]
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :telephone, presence: true, length: { maximum: 12 }, numericality: true

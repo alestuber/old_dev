@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150608225626) do
+ActiveRecord::Schema.define(version: 20150529205456) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,42 +52,12 @@ ActiveRecord::Schema.define(version: 20150608225626) do
   create_table "categories", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
-    t.integer  "taxonomy_id"
     t.integer  "parent_id"
     t.integer  "lft"
     t.integer  "rgt"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
-    t.string   "permalink"
-    t.string   "meta_keywords"
-    t.string   "meta_description"
-    t.string   "meta_title"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
-
-  add_index "categories", ["taxonomy_id"], name: "index_categories_on_taxonomy_id", using: :btree
-
-  create_table "classifications", force: :cascade do |t|
-    t.integer "product_id",  null: false
-    t.integer "category_id", null: false
-    t.integer "position"
-  end
-
-  add_index "classifications", ["category_id", "product_id"], name: "index_classifications_on_category_id_and_product_id", using: :btree
-  add_index "classifications", ["position"], name: "index_classifications_on_position", using: :btree
-  add_index "classifications", ["product_id", "category_id"], name: "index_classifications_on_product_id_and_category_id", using: :btree
-
-  create_table "friendly_id_slugs", force: :cascade do |t|
-    t.string   "slug",                      null: false
-    t.integer  "sluggable_id",              null: false
-    t.string   "sluggable_type", limit: 50
-    t.string   "scope"
-    t.datetime "created_at"
-  end
-
-  add_index "friendly_id_slugs", ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true, using: :btree
-  add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type", using: :btree
-  add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
-  add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
 
   create_table "option_types", force: :cascade do |t|
     t.string   "name"
@@ -126,46 +96,11 @@ ActiveRecord::Schema.define(version: 20150608225626) do
   add_index "option_values_variants", ["option_value_id", "variant_id"], name: "index_option_values_variants_on_option_value_id_and_variant_id", using: :btree
   add_index "option_values_variants", ["variant_id", "option_value_id"], name: "index_option_values_variants_on_variant_id_and_option_value_id", using: :btree
 
-  create_table "prices", force: :cascade do |t|
-    t.decimal  "value"
-    t.integer  "priceable_id"
-    t.string   "priceable_type"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
-  end
-
-  add_index "prices", ["priceable_type", "priceable_id"], name: "index_prices_on_priceable_type_and_priceable_id", using: :btree
-
   create_table "products", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
-    t.datetime "deleted_at"
-    t.integer  "supplier_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-    t.string   "slug"
-    t.string   "meta_title"
-    t.string   "meta_keywords"
-    t.datetime "available_on"
-  end
-
-  add_index "products", ["deleted_at"], name: "index_products_on_deleted_at", using: :btree
-  add_index "products", ["supplier_id"], name: "index_products_on_supplier_id", using: :btree
-
-  create_table "suppliers", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "deleted_at"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "suppliers", ["deleted_at"], name: "index_suppliers_on_deleted_at", using: :btree
-
-  create_table "taxonomies", force: :cascade do |t|
-    t.string   "name",       null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer  "position"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -208,34 +143,10 @@ ActiveRecord::Schema.define(version: 20150608225626) do
     t.boolean  "is_master",                          default: false
     t.integer  "position"
     t.integer  "product_id"
-    t.datetime "deleted_at"
     t.datetime "created_at",                                         null: false
     t.datetime "updated_at",                                         null: false
     t.text     "images",                                                          array: true
   end
 
-  add_index "variants", ["deleted_at"], name: "index_variants_on_deleted_at", using: :btree
-
-  create_table "versions", force: :cascade do |t|
-    t.string   "item_type",  null: false
-    t.integer  "item_id",    null: false
-    t.string   "event",      null: false
-    t.string   "whodunnit"
-    t.text     "object"
-    t.datetime "created_at"
-  end
-
-  add_index "versions", ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id", using: :btree
-
-  add_foreign_key "categories", "categories", column: "parent_id", name: "categories_parent_id_fk", on_delete: :cascade
-  add_foreign_key "categories", "taxonomies", on_delete: :cascade
-  add_foreign_key "classifications", "categories", on_delete: :cascade
-  add_foreign_key "classifications", "products", on_delete: :cascade
-  add_foreign_key "option_types_products", "option_types"
-  add_foreign_key "option_types_products", "products"
   add_foreign_key "option_values", "option_types"
-  add_foreign_key "option_values_variants", "option_values"
-  add_foreign_key "option_values_variants", "variants"
-  add_foreign_key "products", "suppliers"
-  add_foreign_key "variants", "products"
 end

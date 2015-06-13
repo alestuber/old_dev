@@ -4,16 +4,9 @@ pt-BR:
       category:
         name: Nome
         description: Descrição
-      classification:
-        category_id: Categoria
-        product_id: Produto
       product:
         name: Nome
         description: Descrição
-      supplier:
-        name: Nome
-      taxonomy:
-        name: Nome
       user:
         email: E-mail
         password: Senha
@@ -29,16 +22,9 @@ pt-BR:
         name: Nome
         sku: SKU
         ean: EAN
-        price: Preço
         cost_price: Preço de custo
         is_master: É mestre
         position: Posição
-    errors:
-      models:
-        classification:
-          attributes:
-            category_id:
-              already_linked: "já está ligada a este produto"
     models:
       admin_user:
         one: Administrador
@@ -46,18 +32,9 @@ pt-BR:
       category:
         one: Categoria
         other: Categorias
-      classification:
-        one: Classificação
-        other: Classificações
       product:
         one: Produto
         other: Produtos
-      supplier:
-        one: Fornecedor
-        other: Fornecedores
-      taxonomy:
-        one: Taxonomia
-        other: Taxonomias
       user:
         one: Usuário
         other: Usuários

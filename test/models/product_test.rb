@@ -30,42 +30,11 @@ class ProductTest < ActiveSupport::TestCase
   test 'has many variants' do
     apple_extra = products(:product_apple_gala_extra)
     assert_equal [variants(:variant_apple_gala_extra)], apple_extra.variants
-    assert_equal variants(:variant_apple_gala_extra_master, :variant_apple_gala_extra),
-                 apple_extra.variants_including_master
+    assert_equal variants(:variant_apple_gala_extra_master, :variant_apple_gala_extra), apple_extra.variants_including_master
   end
 
   test 'HABTM option_types' do
     banana = products(:product_banana_prata_pda)
     assert_equal option_types(:ot_banana_personalization, :ot_banana_personalization2), banana.option_types
-  end
-
-  test 'has many categories through classifications' do
-    product_copo_coca_cola = products(:product_copo_coca_cola)
-    assert_equal categories(:category_cozinha, :brand_coca_cola), product_copo_coca_cola.categories
-  end
-
-  test 'should delegate sku to master variant' do
-    sku = @cereal_bar.master.sku
-    assert_equal sku, @cereal_bar.sku
-  end
-
-  # available?
-  test 'should be available if date is in the past' do
-    @cereal_bar.available_on = 1.day.ago
-    assert @cereal_bar.available?
-  end
-
-  test 'should not be available if date is nil or in the future' do
-    @cereal_bar.available_on = nil
-    assert_not @cereal_bar.available?
-
-    @cereal_bar.available_on = 1.day.from_now
-    assert_not @cereal_bar.available?
-  end
-
-  test 'should not be available if destroyed' do
-    product_apple_gala_extra = products(:product_apple_gala_extra)
-    product_apple_gala_extra.destroy
-    assert_not product_apple_gala_extra.available?
   end
 end
