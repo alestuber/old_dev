@@ -21,8 +21,6 @@ ActiveAdmin.register Variant do
 
     column :ean
 
-    column :price
-
     column :cost_price
 
     column :is_master

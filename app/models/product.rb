@@ -3,9 +3,9 @@
 # Products can have variations, called variants
 #
 # MASTER VARIANT
-# Every product has one master variant, which stores master price and sku, size and weight, etc.
+# Every product has one master variant, which stores sku, size and weight, etc.
 # The master variant does not have option values associated with it.
-# Price, SKU, size, weight, etc. are all delegated to the master variant.
+# SKU, size, weight, etc. are all delegated to the master variant.
 #
 # VARIANTS
 # All variants can access the product properties directly (via reverse delegation).

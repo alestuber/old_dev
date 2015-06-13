@@ -59,8 +59,6 @@ gem 'carrierwave', github:'carrierwaveuploader/carrierwave'
 gem 'acts_as_list', '0.7.2'
 # Tree structure as a nested set for models
 gem 'awesome_nested_set', '3.0.2'
-# Saves versions
-gem 'paper_trail', '4.0.0.rc1'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

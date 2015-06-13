@@ -22,7 +22,6 @@ pt-BR:
         name: Nome
         sku: SKU
         ean: EAN
-        price: Preço
         cost_price: Preço de custo
         is_master: É mestre
         position: Posição
