@@ -3,16 +3,21 @@ require 'test_helper'
 class ProductTest < ActiveSupport::TestCase
   def setup
     @cereal_bar = products(:product_cereal_bar_banana)
-  end
-
-  def tear_down
-    @cereal_bar = nil
+    @root_category = Category.create name: 'Root Category'
+    @child_category = Category.create name: 'Cereals and stuff'
+    @child_category.move_to_child_of @root_category
+    @child_category.reload
   end
 
   test 'should all products be valid' do
     Product.all.each do |p|
       assert p.valid?
     end
+  end
+
+  test 'should belong to a category' do
+    @cereal_bar.category = @child_category
+    assert_equal @root_category, @cereal_bar.category.root
   end
 
   test 'should have name' do
